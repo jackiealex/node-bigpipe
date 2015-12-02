@@ -1,0 +1,45 @@
+<%
+	var pathname = pathname.replace(/^\//, '')
+	pathname = '/' + pathname;
+%>
+<div class="page-nav ui basic buttons">
+	<% if (current != 1) { %>
+	<a class="ui button action-paresh start" href="${pathname}?${queryString}&page=1">首页</a>
+	<% } %>
+	<% if (prev) { %>
+	<a class="ui button action-paresh prev" href="${pathname}?${queryString}&page=${prev}" title="上一页">&lt;</a>
+	<% } %>
+	<% for(var i = 0; i < list.length; i ++) { %>
+		<%
+			var cursor = list[i];
+		%>
+		<% if(current == cursor) { %>
+			<a class="bar pin ui button" style="background: #D4D4D4 !important;color: #fff !important;">${cursor}</a>
+		<% } else { %>
+			<a href="${pathname}?${queryString}&page=${cursor}" class="ui button action-paresh bar">${cursor}</a>
+		<% } %>
+	<% } %>
+	<% if (next) { %>
+	<a class="ui button action-paresh next" href="${pathname}?${queryString}&page=${next}" title="下一页">&gt;</a>
+	<% } %>
+	<% if (current != totalPage) { %>
+	<a class="ui button action-paresh end" href="${pathname}?${queryString}&page=${totalPage}">尾页</a>
+	<% } %>
+	<%
+		var goNum = current + 1  < totalPage ? current + 1 : 1;
+		var randomId = +new Date();
+		var validateString = '页码请在 1' +'到' +totalPage+' 范围内';
+		if(totalPage<=1) {
+			validateString = '仅有第1页';
+		}
+	%>
+		<div class="total button ui">
+			共${totalPage}页
+		</div>
+	<div class="port">
+		<div class="txt">跳至</div>
+		<input type="number" name="page" class="input" style="width: 60px" max=${totalPage} min=1 required  value="${goNum}" placeholder="页码"  />
+		<input class="ok" type="submit" value="确定" onsubmit="return false;" onclick="_SmartPipe_.location('${pathname}?${queryString}&page='+this.previousElementSibling.value)" />
+	</div>
+	
+</div>

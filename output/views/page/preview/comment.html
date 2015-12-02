@@ -1,0 +1,38 @@
+<ul>
+	<% if(comments.length == 0) { %>
+	<li>
+		<div class="desc" style="height: 18px;">暂无评论 <img src="/static/img/icons/exclamation.png" style="width: 18px; vertical-align:middle;display: inline;margin: -2px 0 0 4px;" alt=""></div>
+	</li>
+	<% } else { %>
+	<% for(var i=0; i<comments.length; i++) { %>
+	<%
+	var commentItem = comments[i];
+	%>
+	<% if(commentItem['replyUser']) { %>
+	<li class="item" data-uid="${commentItem['userId']}">
+		<img class="comment-head" src="${commentItem['headUrl']}" alt="" />
+		<div class="cmt">
+			<div class="origin">
+				<p class="user"><span class="speaker">${commentItem['nickname']|trim}</span><span style="color:blue;">回复</span>${commentItem['replyUser']['nickname']|trim} </p>
+				<p class="time">${commentItem['createDate']|whenHappend}</p>
+			</div>
+			<div class="content"> ${commentItem['content']|trim} </div>
+		</div>
+		<p class="close" data-id="${commentItem['id']}">删除</p>
+	</li>
+	<% } else { %>
+	<li class="item" data-uid="${commentItem['userId']}">
+		<img class="comment-head" src="${commentItem['headUrl']}" alt="" />
+		<div class="cmt">
+			<div class="origin">
+				<p class="user"><span class="speaker">${commentItem['nickname']|trim} </span></p>
+				<p class="time">${commentItem['createDate']|whenHappend}</p>
+			</div>
+			<div class="content"> ${commentItem['content']|trim} </div>
+		</div>
+		<p class="close" data-id="${commentItem['id']}">删除</p>
+	</li>
+	<% } %>
+	<% } %>
+	<% } %>
+</ul>

@@ -1,0 +1,30 @@
+<link rel="stylesheet" type="text/css" href="/static/css/page/verifycode/index.css">
+<div class="mod-verify-box">
+	<h2>第一步:请选择你的操作并获取验证码:</h2>
+	<select name="type" class="choice">
+		<option value="0">手机号注册</option>
+		<option value="1">重置密码</option>
+	</select>
+	<div class="wrapper">
+		<input type="text" placeholder="请输入手机号" value="">
+		<input type="button" value="获取验证码" class="getcode">
+	</div>
+
+	<h2>第二步:请根据提示完成操作:</h2>
+	<div class="row register">
+		密码: <input type="password" class="pwd" placeholder="请设置一个密码"><br>
+		再次输入:<input type="password" class="repwd" placeholder="请再输入一次"><br>
+		验证码: <input type="text" class="validcode" placeholder="请输入收到的验证码"><br>
+		<p class="register-result"></p>
+		<input type="button" class="submit" value="提交">
+	</div>
+
+	<div class="row reset-pwd">
+		新密码:<input type="password" class="newpwd" placeholder="新密码"><br>
+		再次输入:<input type="password" class="renewpwd" placeholder="请再输入一次"><br>
+		验证码:<input type="text" class="validcode" placeholder="请输入收到的验证码"><br>
+		<p class="reset-result"></p>
+		<input type="button"  class="submit" value="提交">
+	</div>
+</div>
+<script src="/static/js/mod/verifycode/index.js"></script>

@@ -1,0 +1,239 @@
+.class-page-navi {
+  position: relative;
+  margin-top: 20px;
+}
+.class-page-navi .port {
+  position: absolute;
+  right: -200px;
+  background: none;
+rgba(39,41,43,0.15)
+  display: -moz-box;
+/* OLD - Firefox 19- (buggy but mostly works) */
+  display: flex;
+  display: -webkit-box;
+/* OLD - iOS 6-, Safari 3.1-6 */
+  display: -ms-flexbox;
+/* TWEENER - IE 10 */
+  display: -webkit-box;
+/* NEW - Chrome */
+  -webkit-box-align: center;
+  -o-box-align: center;
+  -moz-box-align: center;
+  -ms-box-align: center;
+  box-align: center;
+  border: 1px solid rgba(39,41,43,0.15);
+  border-radius: 0.2857rem;
+  font-size: 12px;
+}
+.class-page-navi .port div {
+  padding: 4px;
+}
+.class-page-navi .port input {
+  min-width: 60px;
+  display: block;
+  margin: 0;
+  padding: 4px;
+  border: none;
+  background: rgba(39,41,43,0.15);
+}
+.class-page-navi .port .input {
+  background: none;
+  outline: none;
+}
+.class-page-navi .port .input:focus {
+  outline: none;
+  color: #000;
+  font-weight: bold;
+}
+.class-page-navi .pin {
+  border: none !important;
+  cursor: default;
+  margin-left: -1px;
+}
+.file-picker input[type="file"] {
+  display: none;
+}
+.class-btn-add-files {
+  width: 200px;
+  height: 40px;
+  position: relative;
+  overflow: hidden;
+  background: #20a7e9;
+  color: #fff;
+  border-radius: 12px;
+  line-height: 40px;
+  text-align: center;
+}
+.class-btn-add-files input[type="file"] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  opacity: 0;
+  -ms-filter: 'alpha(opacity=0)';
+  font-size: 200px;
+  direction: ltr;
+  cursor: pointer;
+}
+.class-btn-add-files .text {
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+}
+.mod-poster-publish {
+  padding: 20px;
+}
+.mod-poster-publish select.ui.dropdown {
+  height: 32px !important;
+  background: #fff;
+  visibility: visible;
+}
+.mod-poster-publish select.ui.dropdown option {
+  width: 500px;
+  height: 50px;
+}
+.mod-poster-publish .files {
+  position: relative;
+  padding: 45px 15px 15px;
+  margin: 15px 0;
+  margin-bottom: 0;
+  background-color: #fafafa;
+  box-shadow: inset 0 3px 6px rgba(0,0,0,0.05);
+  border-color: #e5e5e5 #eee #eee;
+  border-style: solid;
+  border-width: 1px 0;
+}
+.mod-poster-publish .files::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.mod-poster-publish .files h2 {
+  text-align: center;
+}
+.mod-poster-publish .files .btn-bottoms::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.mod-poster-publish .files .btn-bottoms::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.mod-poster-publish .files .file-box {
+  margin: 20px 10px;
+  position: relative;
+  background: #eee;
+  float: left;
+  width: 200px;
+  height: 200px;
+}
+.mod-poster-publish .files .file-box.audio {
+  background: #008000;
+}
+.mod-poster-publish .files .file-box.succ {
+  background: rgba(0,255,0,0.6);
+}
+.mod-poster-publish .files .file-box.fail {
+  background: rgba(255,0,0,0.6);
+}
+.mod-poster-publish .files .file-box.warn {
+  background: rgba(0,255,255,0.6);
+}
+.mod-poster-publish .files .file-box .btn-delete {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  top: -15px;
+  right: -15px;
+  background: #ddd;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  z-index: 1;
+  cursor: default;
+  display: none;
+}
+.mod-poster-publish .files .file-box:hover .btn-delete {
+  display: block;
+}
+.mod-poster-publish .files .file-box:hover .btn-preview {
+  display: block;
+}
+.mod-poster-publish .files .file-box .progress-stick {
+  position: absolute;
+  height: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 9;
+  background: rgba(0,255,0,0.628);
+  width: 0;
+}
+.mod-poster-publish .files .file-box .btn-preview {
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background: #ddd;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  z-index: 11;
+  position: absolute;
+  cursor: default;
+  display: none;
+}
+.mod-poster-publish .files .file-box .preview-container {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 0;
+}
+.mod-poster-publish .file-cover .btn-preview {
+  display: none;
+}
+.mod-poster-publish .webuploader-dnd-over {
+  background: #008000;
+}
+.mod-poster-publish .tips {
+  text-align: center;
+  color: #eee;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  font-size: 18px;
+}
+.mod-poster-publish .file-picker {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: -moz-box;
+/* OLD - Firefox 19- (buggy but mostly works) */
+  display: flex;
+  display: -webkit-box;
+/* OLD - iOS 6-, Safari 3.1-6 */
+  display: -ms-flexbox;
+/* TWEENER - IE 10 */
+  display: -webkit-box;
+/* NEW - Chrome */
+  -webkit-box-pack: center;
+  -o-box-pack: center;
+  -moz-box-pack: center;
+  -ms-box-pack: center;
+  box-pack: center;
+  -webkit-box-align: center;
+  -o-box-align: center;
+  -moz-box-align: center;
+  -ms-box-align: center;
+  box-align: center;
+}

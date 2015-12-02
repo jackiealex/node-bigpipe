@@ -1,0 +1,12 @@
+
+merge/m.js
+----------------
+merge/a.js
+merge/b.js
+merge/m.js
+
+merge/n.js
+----------------
+merge/a.js
+merge/c/c.js
+merge/n.js

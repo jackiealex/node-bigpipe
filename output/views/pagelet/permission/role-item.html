@@ -1,0 +1,33 @@
+<div class="item role animated zoomIn">
+	<h2>角色名：<span>${item.name}</span>
+	<p>${item.description}</p>
+	<div class="small red icon ui buttons menu">
+		<div class="ui button settings" title="高级"><i class="settings icon"></i></div>
+		<div class="ui button update" title="编辑"><i class="edit icon"></i></div>
+		<div class="ui button delete" title="删除"><i class="minus  icon"></i></div>
+	</div>
+	</h2>
+	<ul data-id="${item.id}">
+		<% if (authorities.length == 0) { %>
+		<li class="empty">拖拽权限到这里！</li>
+		<% } else { %>
+		<% for(var j = 0; j < authorities.length; j ++) { %>
+		<%
+			var itemUrl = authorities[j];
+		%>
+		<li class="item url" data-id="${itemUrl.id}">
+			<h4><i class="icon fork"></i>${itemUrl.url}</h4>
+			<div class="ui compact labeled icon button btn-url-remove">
+				<i class="remove icon"></i>
+				移除
+			</div>
+			<div>
+				<div class="name">名称：${itemUrl.name}</div>
+				<div class="url">描述：${itemUrl.description}</div>
+				<div class="method">方法：${itemUrl.method}</div>
+			</div>
+		</li>
+		<% } %>
+		<% } %>
+	</ul>
+</div>

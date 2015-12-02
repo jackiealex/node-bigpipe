@@ -1,0 +1,152 @@
+<div class="mod-music-list mod" >
+	<div class="header">
+		<div class="ui icon input">
+			<% if(key) { %>
+			<input type="text" placeholder="搜索歌曲"  value="${key}">
+			<% } else{ %>
+			<input type="text" placeholder="搜索歌曲"  value="">
+			<% } %>
+			<i class="circular search icon action-paresh" data-url=""></i>
+		</div>
+		<% if(_PUBLISH_) {%>
+		<a href="/music/publish"  class="ui down button action-paresh">
+			<i class="tag icon"></i>
+			添加歌曲
+		</a>
+		<% } %>
+
+		<div class="ui icon buttons btn-make">
+		<a class="ui down button green btn-select-all">
+			<i class="checkmark  box icon"></i>
+			全选
+		</a>
+		<a class="ui down button green btn-reverse-select">
+			<i class="checkmark  box icon"></i>
+			反选
+		</a>
+		</div>
+
+		<div class="ui icon buttons btn-do">
+			<!--<div class="ui down button disabled btn-remove">
+				<i class="checkmark box icon"></i>
+				删除
+			</div>-->
+			<div class="ui  button disabled btn-online btn-o2o">
+				<i class="arrow up green icon"></i>
+				上线
+			</div>
+			<div class="ui  button disabled btn-offline btn-o2o">
+				<i class="arrow down red  icon"></i>
+				下线
+			</div>
+			<div class="ui  button btn-hot disabled" data="${type}">
+				<i class="certificate icon"></i>
+				<% if(type==1) { %>提交排序 <% } else {%> 设为热门 <% } %>
+			</div>
+			<% if(type==1) { %>
+			<div class="ui down button btn-unhot disabled">
+				<i class="certificate icon"></i>
+				取消热门
+			</div>
+			<% } %>
+		</div>
+	</div>
+	<%
+		var activeArray = [
+			{text: '全部', isActive: ''},
+			{text: '热门', isActive: ''},
+			{text: '华语', isActive: ''},
+			{text: '日韩', isActive: ''},
+			{text: '欧美', isActive: ''},
+			{text: '其它', isActive: ''}
+		];
+		activeArray[type]['isActive'] = 'active';
+	%>
+	<div class="container">
+ 		<div class="list">
+ 			<div class="ui top attached tabular menu">
+				<div class=" item">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+				<%for(var i = 0;i<activeArray.length;i++) { %>
+				<%
+					var tabItem = activeArray[i];
+					var pageValue = currentPage;
+					if(i != type) {
+						pageValue = 1;
+					}
+				%>
+				<a href="/music/list?page=${pageValue}&type=${i}" class="${tabItem['isActive']} item action-paresh">${tabItem['text']}</a>
+				<% } %>
+ 			</div>
+ 			<table class="ui table striped selectable attached">
+ 				<thead>
+ 					<tr>
+ 						<th>选择(${list.length}首)</th>
+ 						<th>歌曲</th>
+ 						<th>歌手</th>
+ 						<th>专辑</th>
+ 						<th>区域</th>
+ 						<th>序号</th>
+ 						<th>状态</th>
+						<th>操作</th>
+ 					</tr>
+ 				</thead>
+ 				<tbody>
+ 					<% for(var i = 0; i < list.length; i ++) { %>
+ 					<%
+ 						var item = list[i];
+ 					%>
+ 					<tr class="item">
+ 						<td class="select">
+							<input type="checkbox" value="${item.id}"  />
+						</td>
+ 						<td style="max-width: 200px;">
+ 							<a target="_blank" href="${item.audioUrl}" class="name">${item.name}</a>
+ 							<a target="_blank" href="${item.lyricUrl}">歌词</a>
+ 						</td>
+ 						<td class="artist">${item.artist}</td>
+ 						<td style="...">《${item.album}》</td>
+ 						<td>
+ 						<% if(item.area == 1){ %>
+ 							华语
+ 						<% } else if(item.area == 2){ %>
+ 							日韩
+ 						<% } else if(item.area == 3){%>
+ 							欧美
+ 						<% } else { %>其他<% } %>
+ 						</td>
+ 						<td class="order">
+ 							<% if(type == 1){ %>
+ 								<div class="ui small icon input">
+ 									<input type="text" name="data_order" value="${item.order}"  />
+ 									<i class="order icon"></i>
+ 								</div>
+ 								<% } else { %>
+ 									${item.order}
+ 								<% } %>
+ 								</td>
+ 						<td>
+ 							<%if(item.status==1) { %>
+ 							<i class="arrow up green icon"></i>
+							<% } else { %>
+							<i class="arrow down red icon"></i>
+							<% } %>
+ 						</td>
+						<td>
+							<a href="/music/modify?id=${item.id}"  class="ui down button action-paresh">
+								<i class="tag icon"></i>
+								修改歌曲
+							</a>
+						</td>
+ 					</tr>
+ 					<% } %>
+ 				</tbody>
+ 			</table>
+ 			<% if (page) { %>
+			<%include name="common/widgets/pagenavi.html" var="page" /%>
+			<% } %>
+ 		</div>
+ 	</div>
+</div>
+
+<link rel="stylesheet" href="/static/css/page/music/list.css">
+<script type="text/javascript" src="/static/js/mod/music/list.js"></script>

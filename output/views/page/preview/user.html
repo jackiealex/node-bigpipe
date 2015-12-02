@@ -1,0 +1,12 @@
+<div class="pull">.<br>.<br>.<br>.<br>.</div>
+<ul class="robot">
+<%
+for(var i = 0; i<users.length; i++) {
+var item = users[i];
+%>
+<li class="robotman" data-id='${item.id}' data-name="${item.nickname}">
+	<img src="${item.headUrl}" alt="">
+</li>
+<% } %>
+<li class="change-next">换一批</li>
+</ul>

@@ -1,0 +1,44 @@
+<table class="ui attached column table segment">
+    <thead>
+        <tr>
+            <th>头像(${list.length}个)</th>
+            <th>昵称</th>
+            <th>开始时间</th>
+            <th>结束时间</th>
+            <th>排序</th>
+            <th>取消置顶</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i = 0; i < list.length; i ++) { %>
+        <%
+        var item = list[i];
+        %>
+        <tr class="item" data-id="${item.id}">
+            <td>
+                <div class="img">
+                    <%if(!item.headPortrait) {
+                    item.headPortrait = '/static/img/default.png';
+                    }%>
+                    <a target="_blank" href="http://share.vsingapp.com/profile?uid=${item.userId}">
+                        <img src="${item.headPortrait}" />
+                    </a>
+                </div>
+            </td>
+            <td>${item.nickname}</td>
+            <td>${item.startTime|timeFormat}</td>
+            <td>${item.endTime|timeFormat}</td>
+            <td>
+                <div class="ui right action input mini">
+                    <input type="number" name="data_order" style="width: 60px;" min="1" value="${item.orders}" placeholder="${item.orders}"  />
+                    <div class="ui icon button">
+                        <i class="checkmark green icon btn-order"></i>
+                    </div>
+                </div>
+                
+            </td>
+            <td><div class="ui teal button" name="top_cancel">取消</div></td>
+        </tr>
+        <% } %>
+    </tbody>
+</table>

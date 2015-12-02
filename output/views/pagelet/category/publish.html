@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="/static/css/page/category/publish.css">
+<div class="mod-interestlabel-publish">
+	<div class="row" style="margin-top: 0">
+		<a class="ui active primary button action-paresh" href="/category/list">
+		  <i class="chevron  left icon"></i>
+		  返回
+		</a>
+	</div>
+	<form action="/category/create" method="post" class="create-interestlabel">
+	<%include "common/widgets/input-image-preview" "{name: 'files'}"%>
+	<div class="row">
+		<div class="ui icon input">
+			<input type="text" name="name" placeholder="名称">
+			<i class="tag  icon"></i>
+		</div>
+	</div>
+	
+	<div class="row" style="width: 400px;">
+		<div class="ui form">
+			<textarea style="min-height: 48px;height: 48px; width: 100%;" placeholder="说点什么......" name="content"></textarea>
+		</div>
+	</div>
+	<div class="row">
+		<input type="hidden" name="id" value="${pid}">
+	</div>
+	</form>
+	<ul class="category-list">
+	<% for(var i = 0; i < list.length; i++) { %>
+	<%
+		var cate = list[i];
+		var subcateArray = list[i].subcate || [];
+		var len = subcateArray.length;
+		var isSelected = '';
+		if(cate.id == pid) {
+			isSelected = 'selected';
+		}
+	%>
+		<li class="category-list-item ${isSelected}" data-id="${cate.id}">
+			<p class="name">${cate.name}</p>
+			<img src="${cate.surfaceImg}" title="${len}个子项目">
+		</li>
+	<% } %>
+	</ul>
+	<div class="tips">
+		点击选择分类父级，再次点击取消选择（可选操作）
+	</div>
+	<div class="row">
+		<div class=" btn-submit positive ui button">提交</div>
+	</div>
+</div>
+
+
+<script src="/static/js/mod/category/publish.js"></script>

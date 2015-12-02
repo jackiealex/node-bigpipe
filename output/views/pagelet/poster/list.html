@@ -1,0 +1,100 @@
+<div class="mod-user-list">
+	<div class="header">
+		<a href="/poster/publish"  class="ui down button action-paresh">
+			<i class="tag icon"></i>
+			添加banner
+		</a>
+	</div>
+	<%
+		var activeArray = [
+			{text: '新手提示', isActive: ''},
+			{text: '下线', isActive: ''},
+			{text: '等待在线', isActive: ''},
+			{text: '已上线', isActive: ''}
+		];
+		activeArray[tag]['isActive'] = 'active';
+	%>
+	<div class="container">
+		<div class="list">
+			<div class="ui top attached tabular menu">
+				<div class=" item">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+				<%for(var i = 0;i<activeArray.length;i++) { %>
+				<%
+					var tabItem = activeArray[i];
+					var pageValue = currentPage;
+					if(i != tag) {
+						pageValue = 1;
+					}
+
+					var type = 1;
+					var status = 99;
+					if(i != 0){
+						type = 99;
+						status = i - 1;
+					}
+				%>
+				<a href="/poster/list?page=${pageValue}&type=${type}&status=${status}&tag=${i}" class="${tabItem['isActive']} item action-paresh">${tabItem['text']}</a>
+				<% } %>
+			</div>
+			<table class="ui  column table segment">
+				<thead>
+					<tr>
+						<th>图片(${list.length}个)</th>
+						<th>链接</th>
+						<th>链接类型</th>
+						<th>banner方式</th>
+						<th>开始时间</th>
+						<th>结束时间</th>
+						<% if(tag != 1){ %><th>序号设置</th><th>操作</th><% } %>
+					</tr>
+				</thead>
+				<tbody>
+					<% for(var i = 0; i < list.length; i ++) { %>
+					<%
+					var item = list[i];
+					%>
+					<tr class="item" data-id="${item.id}">
+						<td>
+							<%if(!item.imageUrl) {
+							item.imageUrl = '/static/img/default.png';
+							}%>
+							<img src="${item.imageUrl}" />
+						</td>
+						<td>${item.link}</td>
+						<td>
+							<% if(item.linkType == 1){%>链接<% }else{ %>APP下载<% } %>
+						</td>
+						<td>
+							<% if(item.type == 1){%>新手提示<% }else{ %>运营活动<% } %>
+						</td>
+						<td>
+							${item.startDate|timeFormat}
+						</td>
+						<td>
+							${item.endDate|timeFormat}
+						</td>
+						<% if(tag != 1){ %>
+						<td>
+							<input type="number" name="data_order" min="1" value="${item.order}"  />
+							<i class="large green checkmark icon" name="order_submit"></i>
+						</td>
+						<td>
+							<div class="ui teal button" name="offline_setting">下线</div>
+							<a href="/poster/modify?id=${item.id}"  class="ui down button action-paresh">
+								<i class="tag icon"></i>
+								修改banner
+							</a>
+						</td>
+						<% } %>
+					</tr>
+					<% } %>
+				</tbody>
+			</table>
+			<%if(page) { %>
+			<%include name="common/widgets/pagenavi.html" var="page" /%>
+			<%}%>
+		</div>
+	</div>
+</div>
+<link rel="stylesheet" href="/static/css/page/user/list.css">
+<script type="text/javascript" src="/static/js/mod/poster/list.js"></script>

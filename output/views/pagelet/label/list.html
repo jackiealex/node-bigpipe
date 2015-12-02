@@ -1,0 +1,61 @@
+<div class="mod-label-list mod" >
+	<div class="header">
+		<div class="ui icon input">
+			<input type="text" placeholder="搜索标签"  value="">
+			<i class="circular search icon action-paresh" data-url=""></i>
+		</div>
+		<% if(_PUBLISH_) {%>
+		<a href="/label/publish"  class="ui down button action-paresh">
+			<i class="tag icon"></i>
+			添加标签
+		</a>
+		<% } %>
+	</div>
+	<div class="container">
+		<ul class="list">
+			<% for(var i = 0; i < list.length; i ++) { %>
+			<%
+			var item = list[i];
+			%>
+			<li class="item" data-id="${item.id}">
+				<h2>#<span>${item.name}</span></h2>
+				<div class="wrap">
+					<p class="intro">
+					<i class="left file text icon"></i>
+						<%if(item.intro) {%>
+							${item.intro}
+						<%}else {%>
+							－－
+						<% }%>
+					</p>
+					<p>
+					<i class="left wait icon"></i>
+						${item.createDate|timeFormat}
+					</p>
+					<p class="order">
+						<i class="left ordered list icon"></i>
+						${item.order}
+					</p>
+				</div>
+				<div class="ui two bottom attached buttons blue">
+					<button class="ui button  btn-edit" data-id="${item.id}">
+					<i class="left edit icon"></i>
+					编辑
+					</button>
+					<button class="ui button  btn-delete" data-id="${item.id}">
+					<i class="left remove icon"></i>
+					删除
+					</button>
+				</div>
+				<p class="wave"></p>
+			</li>
+			<% } %>
+		</ul>
+		<% if (page) { %>
+		<%include name="common/widgets/pagenavi.html" var="page" /%>
+		<% } %>
+	</div>
+	
+</div>
+<link rel="stylesheet" href="/static/css/page/label/list.css">
+<script type="text/javascript" src="/static/js/mod/label/list.js"></script>

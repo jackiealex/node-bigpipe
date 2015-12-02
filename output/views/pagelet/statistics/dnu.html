@@ -1,0 +1,79 @@
+<div class="mod-dnu"  data-type="${type}">
+	<%
+		var viewMap = {
+			newuser: '新增用户',
+			active: '活跃用户',
+			atlas: '图集变化'
+		}
+	%>
+	<div class="tab-header">
+		<div class="ui top attached tabular menu">
+			<% for(var i in viewMap) { %>
+			<%
+				var isActive = '';
+				if (type==i) {
+					isActive = 'active';
+				}
+			%>
+			<a href="/admin/dnu?type=${i}" class="${isActive} item action-paresh">		${viewMap[i]}
+			</a>
+			<% } %>
+		</div>
+	</div>
+	<header>
+		<div class="ui grid">
+			<div class="three wide column">
+				<div class="ui small icon input   corner labeled  ">
+					<input readonly="readonly" placeholder="开始日期" type="text" class="dnu-start">
+					<i class="calendar icon"></i>
+					<div class="ui corner label" title="清除日期">
+						<i class="remove icon"></i>
+					</div>
+				</div>
+			</div>
+			<div class="three wide column">
+				<div class="ui small icon input   corner labeled  ">
+					<input readonly="readonly" placeholder="结束日期" type="text" class="dnu-end">
+					<i class="calendar icon"></i>
+					<div class="ui corner label" title="清除日期">
+						<i class="remove icon"></i>
+					</div>
+				</div>
+			</div>
+			<div class="two wide column">
+				<button class="ui  button blue btn-date-click" > 确定 </button>
+			</div>
+			
+		</div>
+		<div class="ui grid">
+			<div class="three wide column">
+				<button class="ui  button blue btn-current-month">
+				<i class="calendar icon"></i>
+				本月
+				</button>
+			</div>
+			<div class="three wide column">
+				<button class="ui  button blue btn-current-week" >
+				<i class="unhide icon"></i>
+				本周
+				</button>
+			</div>
+			<div class="three wide column">
+				<button class="ui  button blue btn-today" >
+				<i class="unhide icon"></i>
+				今天
+				</button>
+			</div>
+		</div>
+	</header>
+	<div class="diagram-box">
+		<div class="ui segment" style="height: 100%;">
+			<div class="ui active inverted dimmer" style="border: none">
+				<div class="ui text loader">加载中.....</div>
+			</div>
+		</div>
+	</div>
+</div>
+<link rel="stylesheet" href="/static/css/page/statistics/dnu.css">
+<link rel="stylesheet" href="/static/plugins/datetime.picker/jquery.datetimepicker.css">
+<script type="text/javascript" src="/static/js/mod/statistics/dnu.js"></script>

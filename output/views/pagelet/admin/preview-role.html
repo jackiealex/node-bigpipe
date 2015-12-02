@@ -1,0 +1,38 @@
+<div class="roles">
+<% if(list.length <=0) { %>
+	<div style="width: 400px;padding: 100px;text-align: center;">没有分配角色</div>
+<% } else { %>
+<% for(var i = 0; i < list.length; i++) { %>
+<%
+	var item = list[i];
+	var authorities = item['authorities'];
+%>
+	<div class="item role animated zoomIn"  data-id="${item.id}">
+		<h2>角色名：<span>${item.name}</span>
+			<p>${item.description}</p>
+			<div class="remove" data-id="${item.id}">╳ </div>
+			<div class="expand" >双击展开／收起</div>
+		</h2>
+		<ul>
+			<% if (authorities.length <= 0) { %>
+				<li class="empty">拖拽权限到这里！</li>
+			<% } else { %>
+				<% for(var j = 0; j < authorities.length; j++) { %>
+				<%
+					var itemUrl = authorities[j];
+					
+				%>
+				<li class="item url" data-id="${itemUrl.id}">
+					<h4><i class="icon fork"></i>${itemUrl.url}</h4>
+					<div>
+						<div class="name">名称：${itemUrl.name}</div>
+						<div class="url">描述：${itemUrl.description}</div>
+					</div>
+				</li>
+				<% } %>
+			<% } %>
+		</ul>
+	</div>
+<% } %>
+<% } %>
+</div>

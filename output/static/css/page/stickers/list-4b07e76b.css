@@ -1,0 +1,228 @@
+.class-page-navi,
+.page-nav {
+  position: relative;
+  margin-top: 20px;
+}
+.class-page-navi .port,
+.page-nav .port {
+  position: absolute;
+  right: -200px;
+  background: none;
+rgba(39,41,43,0.15)
+  display: -moz-box;
+/* OLD - Firefox 19- (buggy but mostly works) */
+  display: flex;
+  display: -webkit-box;
+/* OLD - iOS 6-, Safari 3.1-6 */
+  display: -ms-flexbox;
+/* TWEENER - IE 10 */
+  display: -webkit-box;
+/* NEW - Chrome */
+  -webkit-box-align: center;
+  -o-box-align: center;
+  -moz-box-align: center;
+  -ms-box-align: center;
+  box-align: center;
+  border: 1px solid rgba(39,41,43,0.15);
+  border-radius: 0.2857rem;
+  font-size: 12px;
+}
+.class-page-navi .port div,
+.page-nav .port div {
+  padding: 4px;
+}
+.class-page-navi .port input,
+.page-nav .port input {
+  min-width: 60px;
+  display: block;
+  margin: 0;
+  padding: 4px;
+  border: none;
+  background: rgba(39,41,43,0.15);
+}
+.class-page-navi .port .input,
+.page-nav .port .input {
+  background: none;
+  outline: none;
+}
+.class-page-navi .port .input:focus,
+.page-nav .port .input:focus {
+  outline: none;
+  color: #000;
+  font-weight: bold;
+}
+.class-page-navi .pin,
+.page-nav .pin {
+  border: none !important;
+  cursor: default;
+  margin-left: -1px;
+}
+.file-picker input[type="file"] {
+  display: none;
+}
+.class-btn-add-files {
+  width: 200px;
+  height: 40px;
+  position: relative;
+  overflow: hidden;
+  background: #20a7e9;
+  color: #fff;
+  border-radius: 12px;
+  line-height: 40px;
+  text-align: center;
+}
+.class-btn-add-files input[type="file"] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  opacity: 0;
+  -ms-filter: 'alpha(opacity=0)';
+  font-size: 200px;
+  direction: ltr;
+  cursor: pointer;
+}
+.class-btn-add-files .text {
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+}
+.mod-stickers-list {
+  margin: 20px;
+  position: relative;
+}
+.mod-stickers-list .overlay {
+  width: 100%;
+  background-color: #000;
+  opacity: 0.7;
+  height: 2223px;
+}
+.mod-stickers-list .tab-header {
+  margin: 12px 0;
+}
+.mod-stickers-list .tab-header .item {
+  cursor: pointer;
+}
+.mod-stickers-list .label-nav {
+  display: inline;
+}
+.mod-stickers-list .label-nav span {
+  display: inline;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 7px;
+}
+.mod-stickers-list .label-nav i {
+  padding-bottom: 27px;
+}
+.mod-stickers-list ul::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.mod-stickers-list ul li {
+  width: 160px;
+  height: 160px;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  margin: 10px;
+  background: #000;
+}
+.mod-stickers-list ul li .img-wrap {
+  margin: 10px;
+}
+.mod-stickers-list ul li .name {
+  height: 30px;
+  line-height: 30px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: rgba(0,255,0,0.62);
+  padding-left: 8px;
+  color: #fff;
+}
+.mod-stickers-list ul li .name .weight {
+  color: #00f;
+}
+.mod-stickers-list ul li .isfullscreen {
+  position: absolute;
+  left: 60%;
+  bottom: 0;
+}
+.mod-stickers-list ul li .edit {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #fff;
+  border-radius: 0 0 0 15px;
+  background: #008000 url("http://7xlphm.com1.z0.glb.clouddn.com/static/img/icons/edit-75efba14.png") no-repeat center center;
+  background-size: 16px;
+  display: none;
+}
+.mod-stickers-list ul li:hover .text {
+  -webkit-transform: translateY(100%) rotate(720deg);
+  -o-transform: translateY(100%) rotate(720deg);
+  -moz-transform: translateY(100%) rotate(720deg);
+  -ms-transform: translateY(100%) rotate(720deg);
+  transform: translateY(100%) rotate(720deg);
+}
+.mod-stickers-list ul li:hover .name {
+  display: none;
+}
+.mod-stickers-list ul li:hover .edit {
+  display: block;
+}
+.pagelet-dialog {
+  position: absolute;
+  padding-top: 40px;
+  top: 0;
+  display: none;
+  left: 0;
+  background-color: rgba(1,0,0,0.4);
+  z-index: 99999;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0 0 100px 100px rgba(1,0,0,0.4);
+}
+.pagelet-dialog .close {
+  background: #32a8a8;
+  position: fixed;
+  left: 260px;
+  top: 60px;
+  z-index: 99;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+  line-height: 40px;
+  content: "";
+}
+.pagelet-dialog .modal {
+  border-radius: 5px;
+  width: 400px;
+  background-color: #fff;
+  left: 50%;
+  margin-left: -200px;
+  position: relative;
+}
+.pagelet-dialog .modal .form {
+  opacity: 0.1;
+}
+.pagelet-dialog .modal .remove {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.pagelet-dialog .modal .btn-submit {
+  margin-left: 200px;
+  margin-bottom: 10px;
+}
+.pagelet-dialog .modal textarea {
+  border: 1px solid #000;
+}

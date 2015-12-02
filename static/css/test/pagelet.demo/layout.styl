@@ -1,0 +1,29 @@
+$_headerHeight_ = 80px;
+
+$_sidebarWidth_ = 200px;
+
+#header {
+	height: $_headerHeight_;
+	background: blue;
+	color: #fff;
+}
+
+#sidebar {
+	position: absolute;
+	top: $_headerHeight_;
+	bottom: 0;
+	width: $_sidebarWidth_;
+	background: orange;
+	color: #fff;
+}
+
+#main {
+	position: absolute;
+	top: $_headerHeight_;
+	bottom: 0;
+	left: $_sidebarWidth_;
+	right: 0;
+	background: green;
+	color: #fff;
+	overflow: auto;
+}

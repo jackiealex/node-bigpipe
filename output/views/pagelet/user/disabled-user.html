@@ -1,0 +1,71 @@
+<table class="ui attached column table segment">
+    <thead>
+    <tr>
+        <th>头像(${list.length}个)</th>
+        <th>昵称</th>
+        <th>星座/年龄</th>
+        <th>性别</th>
+        <th>在线状态</th>
+        <th>原因</th>
+        <th>是否被禁用</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% for(var i = 0; i < list.length; i ++) { %>
+    <%
+    var item = list[i];
+    %>
+    <tr class="item" data-id="${item.id}">
+        <td>
+            <div class="img">
+                <%if(!item.user.headPortrait) {
+                item.user.headPortrait = '/static/img/default.png';
+                }%>
+                <a target="_blank" href="http://share.vsingapp.com/profile?uid=${item.user.id}">
+                    <img src="${item.user.headPortrait}" />
+                </a>
+            </div>
+        </td>
+        <td class="nickname">${item.user.nickname}</td>
+        <td class="">
+            <% if(item.user.astrological) { %>
+            <p>${item.user.astrological}</p>
+            <% } else { %>
+            <p>未知</p>
+            <% } %>
+            <% if(item.user.age !== undefined) { %>
+            <p>${item.user.age}</p>
+            <% } else { %>
+            <p>未知</p>
+            <% } %>
+        </td>
+        <td class="sex">
+            <%if(item.user.gender == 'male') {%>
+            男
+            <%} else {%>
+            女
+            <% } %>
+        </td>
+        <td>
+            <% if(item.user.status == 0) { %>离线
+            <% } else if(item.user.status == 1) { %>买歌在线
+            <% } else if(item.user.status == 2) { %>卖歌在线
+            <% } else if(item.user.status == 3) { %>卖歌离线
+            <% } %>
+        </td>
+        <td>${item.reason}</td>
+        <td>
+            <%
+            var checked = 'checked';
+            if(item.user.isEnabled) {
+            checked = '';
+            } %>
+            <div class="ui toggle checkbox">
+                <input class="is-enabled-user-change" type="checkbox" data="${item.user.id}" name="public" ${checked} />
+                <label></label>
+            </div>
+        </td>
+    </tr>
+    <% } %>
+    </tbody>
+</table>

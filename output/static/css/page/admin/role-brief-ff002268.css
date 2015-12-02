@@ -1,0 +1,31 @@
+.role-box {
+  margin: 20px 0;
+}
+.role-box .roles {
+  padding: 0;
+}
+.role-box .roles .item {
+  margin: 10px 0;
+  background: #929292;
+  color: #fff;
+  padding: 10px;
+  border-radius: 3px;
+}
+.role-box .roles .item h2 {
+  font-size: 12px;
+}
+.role-box .roles .item.select {
+  background: #f00;
+}
+.role-box .roles .item ul {
+  display: none;
+}
+.role-box .roles .item .remove {
+  display: none;
+}
+.role-box .roles .item .expand {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 4px;
+}

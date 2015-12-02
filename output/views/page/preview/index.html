@@ -1,0 +1,104 @@
+<div class="mod-atlas-preview mod" data-atlasID="${id}">
+	<div class="followers">
+	</div>
+	<div class="img-box">
+	<div class="img-box-header">
+		<h2 class="from">
+		<%
+		var portraitUrl = headUrl || '/static/img/icons/user.png';
+		var desc = basic.content || '暂无描述';
+		desc = desc.replace(/(<([^>]+)>)/ig,"");
+		var usrId = basic.createBy;
+		%>
+		<img src="${portraitUrl}"  title="${desc}" data-id="${usrId}">
+		<span class="name">${basic.nickname|trim}</span>
+		<span class="time">${basic.createDate|whenHappend|trim}</span>
+		<% if(basic.location) { %>
+		<span class="location">${basic.location|trim}</span>
+		<% } %>
+		</h2>
+		<%
+			var overLength = 32;
+			var ellipsis = desc.length > overLength ? '...' : '';
+			var shortDesc = desc.slice(0, overLength) + ellipsis;
+		%>
+		<h2 class="desc">
+			${shortDesc}
+			<p class="desc-detail" >${desc}</p>
+		</h2>
+		<ul class="menu">
+			<% if(basic.praiseNum) { %>
+			<li>赞${basic.praiseNum}</li>
+			<% } %>
+			<% if(labels.length) { %>
+			<li class="menu-label">
+				标签${labels.length}
+				<div class="labels">
+					<% for(var i=0; i<labels.length; i++) { %>
+						<%
+						var label = labels[i];
+						%>
+						<div class="label">
+							${label['name']}
+						</div>
+						<% } %>
+					</div>
+				</li>
+				<% } %>
+				<% if(links.length) { %>
+				<li class="menu-label">
+					链接${links.length}
+					<div class="links">
+						<% for(var i=0; i<links.length; i++) { %>
+						<%
+						var link = links[i];
+						%>
+						<div class="link">
+							<a target="_blank" href="${link['url']}">${link['name']}</a>
+						</div>
+						<% } %>
+					</div>
+				</li>
+				<% } %>
+				
+			</ul>
+		</div>
+		<div class="img-box-main">
+			<div class="speak-here" ng-controller="CommentListCtrl">
+				<div class="list">
+					
+				</div>
+				<div class="comment" >
+					<textarea name="" id="" cols="30" rows="10"></textarea>
+					<div class="btn-comment">评论</div>
+				</div>
+			</div>
+			<div class="img">
+				<img src="${basic.coverImage['url']}" alt="" /><br/>
+			</div>
+			<aside class="thumbs">
+				<div class="wrap">
+					<ul>
+						<%
+						var len = images.length;
+						%>
+						<% for(var i=0; i< len; i++) { %>
+						<%
+						var itemImg = images[i];
+						var size = (itemImg['size'] || "100*100").split("*");
+						var width = size[0];
+						var height = size[1];
+						var ratio = width / (height / 1);
+						%>
+						<li>
+							<img src="${images[i]['url']}" alt="" data-ratio="${ratio}"/>
+						</li>
+						<% } %>
+					</ul>
+				</div>
+			</aside>
+		</div>
+	</div>
+</div>
+<link rel="stylesheet" href="/static/css/page/atlas/preview.css" />
+<script type="text/javascript"  src="/static/js/mod/atlas/preview.js"></script>

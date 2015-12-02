@@ -1,0 +1,151 @@
+.class-page-navi {
+  position: relative;
+  margin-top: 20px;
+}
+.class-page-navi .port {
+  position: absolute;
+  right: -200px;
+  background: none;
+rgba(39,41,43,0.15)
+  display: -moz-box;
+/* OLD - Firefox 19- (buggy but mostly works) */
+  display: flex;
+  display: -webkit-box;
+/* OLD - iOS 6-, Safari 3.1-6 */
+  display: -ms-flexbox;
+/* TWEENER - IE 10 */
+  display: -webkit-box;
+/* NEW - Chrome */
+  -webkit-box-align: center;
+  -o-box-align: center;
+  -moz-box-align: center;
+  -ms-box-align: center;
+  box-align: center;
+  border: 1px solid rgba(39,41,43,0.15);
+  border-radius: 0.2857rem;
+  font-size: 12px;
+}
+.class-page-navi .port div {
+  padding: 4px;
+}
+.class-page-navi .port input {
+  min-width: 60px;
+  display: block;
+  margin: 0;
+  padding: 4px;
+  border: none;
+  background: rgba(39,41,43,0.15);
+}
+.class-page-navi .port .input {
+  background: none;
+  outline: none;
+}
+.class-page-navi .port .input:focus {
+  outline: none;
+  color: #000;
+  font-weight: bold;
+}
+.class-page-navi .pin {
+  border: none !important;
+  cursor: default;
+  margin-left: -1px;
+}
+.file-picker input[type="file"] {
+  display: none;
+}
+.class-btn-add-files {
+  width: 200px;
+  height: 40px;
+  position: relative;
+  overflow: hidden;
+  background: #20a7e9;
+  color: #fff;
+  border-radius: 12px;
+  line-height: 40px;
+  text-align: center;
+}
+.class-btn-add-files input[type="file"] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  opacity: 0;
+  -ms-filter: 'alpha(opacity=0)';
+  font-size: 200px;
+  direction: ltr;
+  cursor: pointer;
+}
+.class-btn-add-files .text {
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+}
+.mod-verify-box {
+  margin: 20px;
+}
+.mod-verify-box input {
+  border-radius: 5px;
+  height: 30px;
+}
+.mod-verify-box .wrapper {
+  margin: 20px 0 20px 50px;
+}
+.mod-verify-box .wrapper .msgresult {
+  color: #f00;
+  margin-top: 10px;
+}
+.mod-verify-box .choice {
+  width: 200px;
+  margin: 20px 0 20px 50px;
+}
+.mod-verify-box .register {
+  margin-top: 20px;
+  text-align: center;
+  width: 300px;
+  height: 250px;
+  overflow: hidden;
+}
+.mod-verify-box .register .pwd {
+  margin-top: 20px;
+  margin-left: 21px;
+}
+.mod-verify-box .register .repwd {
+  margin-top: 20px;
+}
+.mod-verify-box .register .validcode {
+  margin-left: 8px;
+  margin-top: 20px;
+}
+.mod-verify-box .register .register-result {
+  color: #f00;
+  margin-top: 10px;
+  display: none;
+}
+.mod-verify-box .register .submit {
+  margin: 20px 0 0 150px;
+}
+.mod-verify-box .reset-pwd {
+  overflow: hidden;
+  display: none;
+  margin-top: 20px;
+  text-align: center;
+  width: 300px;
+  height: 250px;
+}
+.mod-verify-box .reset-pwd .pwd,
+.mod-verify-box .reset-pwd .validcode,
+.mod-verify-box .reset-pwd .newpwd {
+  margin-top: 20px;
+  margin-left: 13px;
+}
+.mod-verify-box .reset-pwd .renewpwd {
+  margin-top: 20px;
+}
+.mod-verify-box .reset-pwd .reset-result {
+  color: #f00;
+  margin-top: 10px;
+  display: none;
+}
+.mod-verify-box .reset-pwd .submit {
+  margin: 20px 0 0 164px;
+}

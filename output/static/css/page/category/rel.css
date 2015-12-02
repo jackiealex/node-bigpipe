@@ -1,0 +1,553 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: #fff;
+  font-size: 13px;
+  color: #666;
+}
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+h2,
+h4,
+p,
+ul,
+ol,
+li {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
+a {
+  display: block;
+  color: #666;
+  text-decoration: none;
+}
+select {
+  height: auto;
+  background: #fff;
+  border: 1px solid rgba(39,41,43,0.15);
+  border-radius: 0.2857rem;
+  box-shadow: 0em 0em 0em 0em transparent inset;
+  padding: 0.62em 1em;
+  color: rgba(0,0,0,0.8);
+}
+.mod-atlas-rel-category {
+  width: 100%;
+  height: 100%;
+}
+.mod-atlas-rel-category .left,
+.mod-atlas-rel-category .right {
+  width: 360px;
+  position: absolute;
+  height: 100%;
+  padding: 24px;
+}
+.mod-atlas-rel-category .left .category-list {
+  z-index: 1;
+  margin: 10px 0 0 10px;
+  margin-right: -$itemGap;
+}
+.mod-atlas-rel-category .left .category-list::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.mod-atlas-rel-category .left .category-list .category-list-title,
+.mod-atlas-rel-category .left .category-list .category-list-item,
+.mod-atlas-rel-category .left .category-list .category-list-append {
+  width: 52px;
+  height: 52px;
+  position: relative;
+  float: left;
+  background: #f00;
+  margin: 0 2px 2px 0;
+}
+.mod-atlas-rel-category .left .category-list .category-list-title .name,
+.mod-atlas-rel-category .left .category-list .category-list-item .name,
+.mod-atlas-rel-category .left .category-list .category-list-append .name {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  color: #fff;
+  background: rgba(0,0,0,0.4);
+  line-height: 16px;
+  font-size: 10px;
+  height: 16px;
+  padding-left: 4px;
+}
+.mod-atlas-rel-category .left .category-list .category-list-title .options,
+.mod-atlas-rel-category .left .category-list .category-list-item .options,
+.mod-atlas-rel-category .left .category-list .category-list-append .options {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  background: rgba(0,0,0,0.4);
+  z-index: 100;
+  display: none;
+  text-align: center;
+}
+.mod-atlas-rel-category .left .category-list .category-list-title .options p,
+.mod-atlas-rel-category .left .category-list .category-list-item .options p,
+.mod-atlas-rel-category .left .category-list .category-list-append .options p {
+  height: 50%;
+  display: -moz-box;
+/* OLD - Firefox 19- (buggy but mostly works) */
+  display: flex;
+  display: -webkit-box;
+/* OLD - iOS 6-, Safari 3.1-6 */
+  display: -ms-flexbox;
+/* TWEENER - IE 10 */
+  display: -webkit-box;
+/* NEW - Chrome */
+  -webkit-box-pack: center;
+  -o-box-pack: center;
+  -moz-box-pack: center;
+  -ms-box-pack: center;
+  box-pack: center;
+  -webkit-box-align: center;
+  -o-box-align: center;
+  -moz-box-align: center;
+  -ms-box-align: center;
+  box-align: center;
+  cursor: pointer;
+  opacity: 0.2;
+}
+.mod-atlas-rel-category .left .category-list .category-list-title .options p.edit,
+.mod-atlas-rel-category .left .category-list .category-list-item .options p.edit,
+.mod-atlas-rel-category .left .category-list .category-list-append .options p.edit {
+  background: #00f;
+}
+.mod-atlas-rel-category .left .category-list .category-list-title .options p.delete,
+.mod-atlas-rel-category .left .category-list .category-list-item .options p.delete,
+.mod-atlas-rel-category .left .category-list .category-list-append .options p.delete {
+  background: #f00;
+}
+.mod-atlas-rel-category .left .category-list .category-list-title .options p:hover,
+.mod-atlas-rel-category .left .category-list .category-list-item .options p:hover,
+.mod-atlas-rel-category .left .category-list .category-list-append .options p:hover {
+  opacity: 1;
+}
+.mod-atlas-rel-category .left .category-list .category-list-title:hover p.name,
+.mod-atlas-rel-category .left .category-list .category-list-item:hover p.name,
+.mod-atlas-rel-category .left .category-list .category-list-append:hover p.name {
+  display: none;
+}
+.mod-atlas-rel-category .left .category-list .category-list-title:hover .options,
+.mod-atlas-rel-category .left .category-list .category-list-item:hover .options,
+.mod-atlas-rel-category .left .category-list .category-list-append:hover .options {
+  display: block;
+}
+.mod-atlas-rel-category .left .category-list .category-list-title p.name {
+  height: 100%;
+  line-height: 20px;
+  font-size: 14px;
+  background: #000;
+  display: -moz-box;
+/* OLD - Firefox 19- (buggy but mostly works) */
+  display: flex;
+  display: -webkit-box;
+/* OLD - iOS 6-, Safari 3.1-6 */
+  display: -ms-flexbox;
+/* TWEENER - IE 10 */
+  display: -webkit-box;
+/* NEW - Chrome */
+  -webkit-box-pack: center;
+  -o-box-pack: center;
+  -moz-box-pack: center;
+  -ms-box-pack: center;
+  box-pack: center;
+  -webkit-box-align: center;
+  -o-box-align: center;
+  -moz-box-align: center;
+  -ms-box-align: center;
+  box-align: center;
+}
+.mod-atlas-rel-category .left .category-list .category-list-title {
+  width: 52px;
+  height: 52px;
+  background: #00f;
+}
+.mod-atlas-rel-category .left .category-list .category-list-append {
+  display: -moz-box;
+/* OLD - Firefox 19- (buggy but mostly works) */
+  display: flex;
+  display: -webkit-box;
+/* OLD - iOS 6-, Safari 3.1-6 */
+  display: -ms-flexbox;
+/* TWEENER - IE 10 */
+  display: -webkit-box;
+/* NEW - Chrome */
+  -webkit-box-pack: center;
+  -o-box-pack: center;
+  -moz-box-pack: center;
+  -ms-box-pack: center;
+  box-pack: center;
+  -webkit-box-align: center;
+  -o-box-align: center;
+  -moz-box-align: center;
+  -ms-box-align: center;
+  box-align: center;
+  text-align: center;
+  font-size: 16px;
+  color: #fff;
+  background: #e3e3e3;
+  cursor: pointer;
+}
+.mod-atlas-rel-category .left .category-list .category-list-append:hover {
+  background: #808080;
+}
+.mod-atlas-rel-category .left .left-wrap {
+  position: relative;
+  height: 100%;
+}
+.mod-atlas-rel-category .left .search-input {
+  z-index: 10;
+  position: absolute;
+  width: 100%;
+  padding: 6px;
+}
+.mod-atlas-rel-category .left .search-input .ui.input input:focus {
+  background: #ff0;
+}
+.mod-atlas-rel-category .left .search-input .ui-suggestion {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  top: 100%;
+  margin-top: 6px;
+  box-shadow: 0 1px 16px 0 #000;
+  z-index: 1000;
+  background: #fff;
+  max-height: 400px;
+  overflow: auto;
+}
+.mod-atlas-rel-category .left .search-input .ui-suggestion .item {
+  list-style: none;
+  display: -moz-box;
+/* OLD - Firefox 19- (buggy but mostly works) */
+  display: flex;
+  display: -webkit-box;
+/* OLD - iOS 6-, Safari 3.1-6 */
+  display: -ms-flexbox;
+/* TWEENER - IE 10 */
+  display: -webkit-box;
+/* NEW - Chrome */
+  -webkit-box-align: center;
+  -o-box-align: center;
+  -moz-box-align: center;
+  -ms-box-align: center;
+  box-align: center;
+  padding: 8px 6px;
+  border-bottom: 1px solid #e8e8e8;
+}
+.mod-atlas-rel-category .left .search-input .ui-suggestion .item:last-child {
+  margin-bottom: 20px;
+}
+.mod-atlas-rel-category .left .search-input .ui-suggestion .item img {
+  width: 36px;
+  height: 36px;
+  margin-right: 6px;
+  border-radius: 3px;
+}
+.mod-atlas-rel-category .left .search-input span {
+  cursor: pointer;
+}
+.mod-atlas-rel-category .left .box {
+  overflow-y: auto;
+  height: 100%;
+  background: #383838;
+  padding-top: 44px;
+}
+.mod-atlas-rel-category .left .box .cate-box {
+  margin-top: 5px;
+  margin-left: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  border-bottom: 1px solid #444;
+}
+.mod-atlas-rel-category .left .box .cate-box .title {
+  font-size: 15px;
+  color: #fff;
+}
+.mod-atlas-rel-category .left .box .cate-box .content {
+  padding-bottom: 10px;
+}
+.mod-atlas-rel-category .left .box .cate-box .content span {
+  margin-top: 8px;
+  margin-right: 6px;
+  cursor: pointer;
+}
+.mod-atlas-rel-category .left .box .cate-box .content span:hover {
+  background: #ffa500 !important;
+}
+.mod-atlas-rel-category .middle {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin: 0 392px;
+  height: 100%;
+  min-width: 460px;
+}
+.mod-atlas-rel-category .middle .title {
+  display: -moz-box;
+/* OLD - Firefox 19- (buggy but mostly works) */
+  display: flex;
+  display: -webkit-box;
+/* OLD - iOS 6-, Safari 3.1-6 */
+  display: -ms-flexbox;
+/* TWEENER - IE 10 */
+  display: -webkit-box;
+/* NEW - Chrome */
+  -webkit-box-align: center;
+  -o-box-align: center;
+  -moz-box-align: center;
+  -ms-box-align: center;
+  box-align: center;
+  -webkit-box-pack: center;
+  -o-box-pack: center;
+  -moz-box-pack: center;
+  -ms-box-pack: center;
+  box-pack: center;
+  height: 100px;
+  font-size: 25px;
+}
+.mod-atlas-rel-category .middle .title .user-link {
+  position: relative;
+  font-size: 0;
+}
+.mod-atlas-rel-category .middle .title .user-link:hover .btn-recommend {
+  display: block;
+}
+.mod-atlas-rel-category .middle .title .user-link .btn-recommend {
+  position: absolute;
+  left: -100%;
+  top: 0;
+  padding: 4px;
+  background: #000;
+  color: #fff;
+  font-size: 12px;
+}
+.mod-atlas-rel-category .middle .title img {
+  width: 48px;
+  height: 48px;
+  border-radius: 3px;
+  background: #000;
+  display: block;
+}
+.mod-atlas-rel-category .middle .title p {
+  margin-left: 12px;
+  color: #fff;
+  font-size: 16px;
+}
+.mod-atlas-rel-category .middle .middle-box {
+  position: relative;
+  height: calc(100% - 100px);
+}
+.mod-atlas-rel-category .middle .middle-box .main-img {
+  height: 70%;
+  position: relative;
+}
+.mod-atlas-rel-category .middle .middle-box .main-img img {
+  height: auto;
+  width: 100%;
+  margin: 0 auto;
+  -webkit-transition: all 2s ease-in-out;
+  -o-transition: all 2s ease-in-out;
+  -moz-transition: all 2s ease-in-out;
+  -ms-transition: all 2s ease-in-out;
+  transition: all 2s ease-in-out;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.mod-atlas-rel-category .middle .middle-box .main-img .prev,
+.mod-atlas-rel-category .middle .middle-box .main-img .next {
+  width: 30%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+  opacity: 1;
+}
+.mod-atlas-rel-category .middle .middle-box .main-img .prev:hover,
+.mod-atlas-rel-category .middle .middle-box .main-img .next:hover {
+  background: rgba(255,255,255,0.628);
+}
+.mod-atlas-rel-category .middle .middle-box .main-img .prev {
+  left: 0;
+  top: 0;
+}
+.mod-atlas-rel-category .middle .middle-box .main-img .prev .arrow-left {
+  height: 100%;
+  background: url("/static/img/images/left.png") no-repeat center center;
+  display: none;
+  background-size: auto 40px;
+}
+.mod-atlas-rel-category .middle .middle-box .main-img .next {
+  right: 0;
+  top: 0;
+}
+.mod-atlas-rel-category .middle .middle-box .main-img .next .arrow-right {
+  background: url("/static/img/images/right.png") no-repeat center center;
+  height: 100%;
+  background-size: auto 40px;
+  display: none;
+}
+.mod-atlas-rel-category .middle .middle-box .middle-bottom {
+  text-align: center;
+  min-height: 200px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 2;
+  background: rgba(47,47,47,0.67);
+}
+.mod-atlas-rel-category .middle .middle-box .middle-bottom .btn-rel {
+  margin-bottom: 20px;
+}
+.mod-atlas-rel-category .middle .middle-box .middle-bottom p {
+  font-size: 20px;
+  color: #fff;
+  width: 60%;
+  margin: 25px auto;
+  border-bottom: 1px solid #444;
+  padding-bottom: 16px;
+}
+.mod-atlas-rel-category .middle .middle-box .middle-bottom p span {
+  font-size: 14px;
+  color: #fff;
+}
+.mod-atlas-rel-category .middle .middle-box .middle-bottom .label-box {
+  background: transparent;
+  padding-top: 10px;
+  margin-right: -10px;
+  text-align: center;
+  min-height: 70px;
+}
+.mod-atlas-rel-category .middle .middle-box .middle-bottom .label-box span {
+  cursor: pointer;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+.mod-atlas-rel-category .middle .middle-box .middle-bottom .checkbox {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  bottom: 18px;
+  right: 12px;
+  border-radius: 3px;
+  background: #000 url("/static/img/icons/flip-gray.png") center center no-repeat;
+  background-size: 16px;
+}
+.mod-atlas-rel-category .middle .middle-box .middle-bottom .checkbox.pin {
+  background: #000 url("/static/img/icons/flip.png") center center no-repeat;
+  background-size: 16px;
+}
+.mod-atlas-rel-category .right {
+  width: 360px;
+  height: 100%;
+  right: 0;
+  top: 0;
+  padding-right: 120px;
+}
+.mod-atlas-rel-category .right .sub-img-box {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.mod-atlas-rel-category .right .sub-img-box .img-box {
+  width: 100%;
+  height: auto;
+  background: #000;
+  position: relative;
+}
+.mod-atlas-rel-category .right .sub-img-box .img-box.empty {
+  text-align: center;
+  padding: 10px;
+}
+.mod-atlas-rel-category .right .sub-img-box .img-box.on::after {
+  width: 0px;
+  height: 0px;
+  border-top: 24px solid transparent;
+  border-bottom: 24px solid transparent;
+  border-left: 24px solid #000;
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -2px;
+  margin-top: -24px;
+}
+.mod-atlas-rel-category .right .sub-img-box .img-box.on img {
+  opacity: 1;
+  box-shadow: 2px 2px 0 2px #000 inset;
+}
+.mod-atlas-rel-category .right .sub-img-box .img-box img {
+  display: block;
+  height: auto;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.4s ease-in;
+  -o-transition: opacity 0.4s ease-in;
+  -moz-transition: opacity 0.4s ease-in;
+  -ms-transition: opacity 0.4s ease-in;
+  transition: opacity 0.4s ease-in;
+}
+.mod-atlas-rel-category .right .sub-img-box .img-box .active {
+  opacity: 1;
+}
+.mod-atlas-rel-category .console {
+  width: 60px;
+  right: 0;
+  top: 50%;
+  background: #808080;
+  position: absolute;
+  z-index: 30;
+}
+.mod-atlas-rel-category .console p {
+  text-align: center;
+  padding: 4px;
+  font-size: 14px;
+}
+.mod-atlas-rel-category .console p.page {
+  font-size: 16px;
+}
+.mod-atlas-rel-category .filter {
+  display: none;
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #4a4a4a;
+  position: absolute;
+  z-index: 30;
+}
+.mod-atlas-rel-category .filter .form {
+  padding: 28px 40px 0;
+}
+.mod-atlas-rel-category .filter .btn-close {
+  margin-top: 28px;
+  padding: 10px;
+  text-align: center;
+  color: #fff;
+  background: #000;
+}
+.mod-atlas-rel-category .filter select {
+  height: 32px !important;
+}

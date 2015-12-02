@@ -1,0 +1,125 @@
+<link rel="stylesheet" href="/static/css/page/order/list.css">
+<%
+	var key = key || '';
+	var statusMap = {
+		'-1': '未付款',
+		'0':'订单初始化',
+		'1':'买家已付款',
+		'2':'卖家接受邀请',
+		'3':'卖家拒绝',
+		'4':'接受超时',
+		'5':'卖家发货',
+		'6':'买家已确认',
+		'7':'发货超时',
+		'8':'举报退款',
+		'99':'全部'
+	};
+%>
+<div class="mod-order-list mod" >
+ 	<div class="header">
+ 		<div class="ui form">
+ 			<div class="fields">
+		 		<div class=" field inline ">
+			 		<div class="ui small icon input   corner labeled   ">
+						<input type="text" placeholder="搜索管订单" onfocus="this.select()" value="${key}" />
+						<% if(key) {%>
+							<div class="ui corner label" title="清除">
+							  <i class="remove icon"></i>      
+							</div>
+						<% } %>
+					</div>
+				</div>
+
+		 		<div class=" field inline ">
+		 			<select class="ui dropdown" style="height: 30px ;">
+			 			<%for(var s in statusMap) { %>
+			 			<%
+			 				var isSelected = '';
+			 				if(status == s) {
+			 					isSelected = 'selected'
+			 				}
+			 			%>
+		 				<option ${isSelected} value="${s}">${statusMap[s]}</option>
+		 				<% } %>
+		 			</select>
+		 			
+		 		</div>
+		 		<div class=" field inline ">
+		 			<div class="ui active blue  button">
+		 			  <i class="search icon"></i>
+		 			  搜索
+		 			</div>
+		 		</div>
+ 			</div>
+ 		</div>
+ 	</div>
+ 	<div class="container">
+ 		<div class="list">
+ 			<table class="ui column table segment">
+ 				<thead>
+ 					<tr>
+ 						<th>听歌人</th>
+ 						<th>唱歌人</th>
+ 						<th>价格</th>
+ 						<th>时间</th>
+ 						<th>状态</th>
+ 						<th>星级</th>
+ 						<th>操作</th>
+ 					</tr>
+ 				</thead>
+ 				<tbody>
+ 					<% for(var i = 0; i < list.length; i ++) { %>
+ 					<%
+ 						var item = list[i];
+ 					%>
+ 					<tr class="item row" data-id="${item.id}" data-songid="${item.songId}" data-accompanyid="${item.accompanyId}">
+ 						<td class="listener" data-id="${item.customerId}">${item.customerName}</td>
+ 						<td class="singer" data-id="${item.singerId}">
+ 							${item.singerName}
+ 						</td>
+ 						<td class="price">
+ 						<% if(item.price) { %>
+ 							${item.price}
+ 						<% } else { %>
+ 							-
+ 						<% } %>
+ 						</td>	
+ 						<td class="date">
+ 							<p>
+ 								<i class="history icon"></i>
+ 								${item.createDate|timeFormat}</p>
+ 							<p>
+ 							<i class="wait icon"></i>
+							${item.modifyDate|timeFormat}</p>
+ 						</td>	
+ 						<td class="status">
+ 							<% if(item.status == -1) { %>
+ 								<span style="color: red">${statusMap[item.status]}</span>
+ 							<% } else { %>
+ 							${statusMap[item.status]}
+ 							<% } %>
+ 						</td>
+ 						<td class="star">
+						<% if(item.starLevel) { %>
+							${item.starLevel}
+						<% } else { %>
+							-
+						<% } %>
+ 						</td>
+ 						<td>
+ 							<i class="settings icon"></i>
+						</td>
+ 					</tr>
+ 					<% } %>
+
+ 				</tbody>
+ 			</table>
+ 			<%if(page) { %>
+ 				<%include name="common/widgets/pagenavi.html" var="page" /%>
+ 			<%}%>
+ 		</div>
+ 	</div>
+</div>
+
+<script src="/static/js/mod/order/list.js"></script>
+

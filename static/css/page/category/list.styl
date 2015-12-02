@@ -1,0 +1,142 @@
+@import "../../liblus/_css3";
+@import "../../liblus/widget";
+
+// start file
+.mod-interestlabel-list {
+	margin: 20px;
+	position: relative
+	.category {
+		.category-list {
+			clear();
+			margin: 10px 0 0 0;
+			margin-right: -$itemGap;
+			$itemSize = 80px;
+			$itemGap = 2px;
+			$titleZoom = 2;
+			.category-list-title, .category-list-item, .category-list-append {
+				size($itemSize);
+				position: relative
+				float: left;
+				background: red;
+				margin: 0 $itemGap $itemGap 0;
+				.name {
+					position: absolute;
+					left: 0;
+					top: 0;
+					width: 100%;
+					color: #fff;
+					background: rgba(0, 0, 0, 0.4);
+					line-height: 16px;
+					font-size: 10px;
+					height: 16px;
+					padding-left: 4px;
+
+				}
+				.options {
+					position: absolute;
+					left: 0;
+					top: 0;
+					width: 100%;
+					height: 100%;
+					color: #fff;
+					background: rgba(0, 0, 0, 0.4);
+					z-index: 100;
+					display: none;
+					text-align: center
+					p {
+						height: 50%;
+						box()
+						pack(center)
+						align(center)
+						cursor: pointer;
+						opacity: 0.2
+						&.edit {
+							background: rgb(0, 0, 255);
+						}
+						&.delete {
+							background: rgb(255, 0, 0);
+						}
+						&:hover {
+							opacity: 1
+						}
+					}
+				}
+				&:hover {
+					p.name {
+						display: none;
+					}
+					.options {
+						display: block;
+					}
+				}
+			}
+			.category-list-title {
+				p.name {
+					height: 20px;
+					line-height: 20px;
+					font-size: 14px;
+				}
+			}
+			.category-list-title {
+				size($titleZoom*$itemSize + $itemGap*($titleZoom - 1));
+				background: blue;
+				
+			}
+			.category-list-append {
+				box()
+				pack(center)
+				align(center)
+				text-align: center;
+				font-size: 16px;
+				color: #fff;
+				background: #e3e3e3;
+				cursor: pointer
+				&:hover {
+					background: gray;
+				}
+			}
+		}
+	}
+	ul.xx {
+		clear()
+		li {
+			box()
+			pack()
+			align()
+			float: left;
+			width: 24%;
+			margin: 0 1% 1% 0;
+			height: 240px;
+			overflow: hidden;
+			position: relative;
+			box-sizing: border-box;
+			.img-wrap {
+				margin: 10px;
+			}
+			p {
+				fontheight(30px);
+				position: absolute;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				background: rgba(33,33,33, 0.62);
+				padding-left: 8px;
+				color: #fff;
+			}
+			span {
+				position: absolute;
+				right: 0;
+				bottom: 4px;
+				color: #fff;
+			}
+			
+			&:hover {
+				.text {
+					transform(translateY(100%) rotate(720deg));
+				}
+			}
+		}
+	}
+}
+
+ 

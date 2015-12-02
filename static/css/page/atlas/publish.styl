@@ -1,0 +1,52 @@
+@import "../../liblus/_css3";
+@import "../../liblus/widget";
+
+// start file
+.mod-publish {
+	box()
+	.file-box {
+		box();
+		width: 220px;
+		height: 280px;
+	}
+	.clear {
+		clear()
+	}
+	 
+	.drop-zone {
+		size(100%)
+		position: absolute;
+		top: 0;
+		left: 0;
+		border: 2px dashed #dfdfdf; 
+		border-radius: 6px;
+		position: relative;
+		background: url($imgPath + '/icons/image-upload.png') no-repeat center 40px;
+		
+		&.webuploader-dnd-over {
+			border: 2px dashed #999; 
+		}
+		&:hover {
+			.tips {
+				color: #999
+			}
+		}
+		.tips {
+			text-align: center;
+			color: #eee;
+			position: absolute;
+			top: 20px;
+			left: 0;
+			width: 100%;
+			font-size: 18px;
+		}
+		.btnAddFiles {
+			@extend .class-btn-add-files
+		}
+	}
+}
+ 
+
+@import '../../liblus/animate.extend'
+
+

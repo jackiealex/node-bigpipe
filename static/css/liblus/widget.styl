@@ -1,0 +1,79 @@
+@import "./_css3";
+ 
+.class-page-navi {
+	position: relative;
+	margin-top: 20px;
+	.port {
+		position: absolute;
+		right: -200px;
+		background: none;
+		box-shadow( 0 0 0 1px transparent inset, 0 0 0 0 rgba(39,41,43,.15) inset);
+		box()
+		align(center)
+		border: 1px solid rgba(39,41,43,.15);
+		border-radius: .2857rem
+		font-size: 12px;
+		div {
+			padding: 4px;
+		}
+		input {
+			min-width: 60px;
+			display: block;
+			margin: 0;
+			padding: 4px;
+			border: none;
+			background: rgba(39,41,43,.15);
+
+		}
+		.input {
+			background: none;
+			outline: none;
+			&:focus {
+				outline: none;
+				color: #000;
+				font-weight: bold;
+			}
+		}
+	}
+	.pin {
+		border: none !important;
+		cursor: default;
+		margin-left: -1px
+	}
+	
+}
+
+.file-picker {
+	input[type="file"] {
+		display: none;
+	}
+}
+// page widget
+.class-btn-add-files {
+	width: 200px;
+	height: 40px;
+	position: relative;
+	overflow: hidden;
+	background: #20a7e9;
+	color: #fff;
+	border-radius: 12px;
+	line-height: 40px;
+	text-align: center;
+		
+	input[type="file"] {
+		position: absolute;
+		top: 0;
+		right: 0;
+		margin: 0;
+		opacity: 0;
+		-ms-filter: 'alpha(opacity=0)';
+		font-size: 200px;
+		direction: ltr;
+		cursor: pointer;
+	}
+	.text {
+		text-align: center;
+		fontheight(40px);
+		
+	}
+}

@@ -1,0 +1,8 @@
+module.exports = function anonymous($_data_) {
+var $_output_ = '';var __$utils = this,$helper = this,__$include = __$utils.include,__LOCAL__ = this.__LOCAL__;
+with($_data_ || {}) {
+var $_output_ = '';$_output_ += '<link rel="stylesheet" type="text/css" href="http://7xlphm.com1.z0.glb.clouddn.com/static/css/page/verifycode/index-00f2ac95.css">\n<div class="mod-verify-box">\n\t<h2>第一步:请选择你的操作并获取验证码:</h2>\n\t<select name="type" class="choice">\n\t\t<option value="0">手机号注册</option>\n\t\t<option value="1">重置密码</option>\n\t</select>\n\t<div class="wrapper">\n\t\t<input type="text" placeholder="请输入手机号" value="">\n\t\t<input type="button" value="获取验证码" class="getcode">\n\t</div>\n\n\t<h2>第二步:请根据提示完成操作:</h2>\n\t<div class="row register">\n\t\t密码: <input type="password" class="pwd" placeholder="请设置一个密码"><br>\n\t\t再次输入:<input type="password" class="repwd" placeholder="请再输入一次"><br>\n\t\t验证码: <input type="text" class="validcode" placeholder="请输入收到的验证码"><br>\n\t\t<p class="register-result"></p>\n\t\t<input type="button" class="submit" value="提交">\n\t</div>\n\n\t<div class="row reset-pwd">\n\t\t新密码:<input type="password" class="newpwd" placeholder="新密码"><br>\n\t\t再次输入:<input type="password" class="renewpwd" placeholder="请再输入一次"><br>\n\t\t验证码:<input type="text" class="validcode" placeholder="请输入收到的验证码"><br>\n\t\t<p class="reset-result"></p>\n\t\t<input type="button"  class="submit" value="提交">\n\t</div>\n</div>\n<script src="http://7xlphm.com1.z0.glb.clouddn.com/static/js/mod/verifycode/index-046f46c5.js"></script>\n';
+}
+return new String($_output_);
+
+}

@@ -1,0 +1,91 @@
+<div class="mod-brushperson-list mod" >
+ 	<div class="header">
+		<a href="/brush/person/list?start=${start}&end=${end}&page=${listpage}" class="ui down blue button action-paresh">
+			<i class="chevron left icon"></i>
+			返回
+		</a>
+ 	</div>
+ 	<div class="ui form">
+		<div class="fields">
+			<div class=" field inline">
+				<div class="ui small icon input   corner labeled  ">
+					<input readonly="readonly" placeholder="开始日期" type="text" class="dnu-start" value="${startDate}">
+					<i class="calendar icon"></i>
+				</div>
+			</div>
+			<div class="field inline">
+				<div class="ui small icon input   corner labeled  ">
+					<input readonly="readonly" placeholder="结束日期" type="text" class="dnu-end" value="${endDate}">
+					<i class="calendar icon"></i>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+ 	<div class="container">
+	 	<div class="list">
+	 		<% var user = list[0].user; %>
+	 		<div>当前用户 手机号：${user.phone}, 昵称：${user.nickname}</div>
+			<table class="ui celled striped table attached">
+				<thead>
+					<tr>
+						<th>接单人（手机，昵称）</th>
+						<th>价格</th>
+						<th>支付方式</th>
+						<th>状态</th>
+						<th>歌曲链接</th>
+						<th>最后修改时间</th>
+						<th>创建时间</th>	
+					</tr>
+				</thead>
+				<tbody>
+					<% 
+					var orderMaps = list[0].orderMaps;
+					for (var i = 0; i < orderMaps.length; i ++) {
+						var item = orderMaps[i];
+					%>
+					<tr>
+						<td>
+							${item.singer.phone}，${item.singer.nickname}
+						</td>
+						<td>${item.order.price}</td>
+						<td>
+							<% if(item.order.payType == 2) { %>支付宝
+							<% } else if(item.order.payType == 3) { %>微信
+							<% } else if(item.order.payType == 4) { %>苹果
+							<% } %>
+						</td>
+						<td>
+						<!-- 订单状态 (-1:交易取消 0:等待付款 1:买家已付款 2:卖家接受邀请 3:卖家拒绝 4:接受超时 5:卖家发货 6:买家已确认 7:发货超时 8.举报退款) -->
+						<% if(item.order.status == -1) { %>交易取消
+						<% } else if(item.order.status == 0) { %>等待付款
+						<% } else if(item.order.status == 1) { %>买家已付款
+						<% } else if(item.order.status == 2) { %>卖家已接受
+						<% } else if(item.order.status == 3) { %>卖家拒绝
+						<% } else if(item.order.status == 4) { %>接受超时
+						<% } else if(item.order.status == 5) { %>卖家发货
+						<% } else if(item.order.status == 6) { %>买家已确认
+						<% } else if(item.order.status == 7) { %>发货超时
+						<% } else if(item.order.status == 8) { %>举报退款
+						<% } %>
+						</td>
+						<% if(!item.order.song) { %>
+						<td>无</td>
+						<% } else { %>
+						<td><a href="${item.order.song.fileUrl}" target="_blank">${item.order.song.name}</a></td>
+						<% } %>
+						<td>${item.order.modifyDate|timeFormat}</td>
+						<td>${item.order.createDate|timeFormat}</td>
+					</tr>
+					<% } %>
+				</tbody>
+			</table>
+			<%if(page) { %>
+			<%include name="common/widgets/pagenavi.html" var="page" /%>
+			<%}%>
+		</div>
+	</div>
+</div>
+<link rel="stylesheet" href="/static/css/page/brushperson/list.css">
+<link rel="stylesheet" href="/static/plugins/datetime.picker/jquery.datetimepicker.css">
+

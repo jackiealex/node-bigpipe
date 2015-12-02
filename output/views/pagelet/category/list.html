@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="/static/css/page/category/list.css">
+ 
+<div class="mod-interestlabel-list mod" >
+	<div class="list-header">
+		<a href="/category/publish"  class="ui down button action-paresh">
+			<i class="tag icon"></i>
+			增加兴趣分类
+		</a>
+		<div class="ui down button img-category-relation">
+		    <i class="sitemap icon"></i>
+			分类图集
+		</div>
+	</div>
+	<div class="category">
+		<% for(var i = 0; i < list.length; i++) { %>
+			<%
+				var cate = list[i];
+				var subcateArray = list[i].subcate || [];
+				var len = subcateArray.length;
+			%>
+			<ul class="category-list">
+				<li class="category-list-title category-list-item" data-id="${cate.id}">
+					<p class="name">${cate.name}</p>
+					<img src="${cate.surfaceImg}" alt="">
+					<div class="options">
+						<p class="edit" title="编辑">编辑</p>
+						<p class="delete" title="删除">删除</p>
+					</div>
+				</li>
+				<% for(var j = 0; j < len; j++) { %>
+				<%
+					var subcateItem = subcateArray[j];
+
+				%>
+				<li class="category-list-item" data-id="${subcateItem.id}" >
+					<p class="name">${subcateItem.name}</p>
+					<img src="${subcateItem.surfaceImg}" alt="">
+					<div class="options">
+						<p class="edit" title="编辑">编辑</p>
+						<p class="delete" title="删除">删除</p>
+					</div>
+				</li>
+				<% } %>	
+				<li class="category-list-append action-paresh" data-url="/category/publish?pid=${cate.id}"  class="action-paresh">
+					添加
+				</li>
+			</ul>
+		<% } %>
+	</div>
+</div>
+<link rel="stylesheet" href="/static/plugins/aui-artDialog/css/ui-dialog.css">
+<script src="/static/plugins/aui-artDialog/dist/dialog-min.js"></script>
+<script src="/static/js/mod/common/lazy.js"></script>
+<script type="text/javascript" src="/static/js/mod/category/list.js"></script>
+ 

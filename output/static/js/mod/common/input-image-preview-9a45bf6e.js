@@ -1,0 +1,1 @@
+define(function(){return function(e){$(e).on("change",function(e){var t=e.target.files[0],n=$(this),r=new FileReader;r.onload=function(e){var t=e.target.result;n.parent().find("img").attr("src",t)},r.readAsDataURL(t)})}})

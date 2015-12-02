@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="/static/css/page/user/atlas-list.css">
+<link rel="stylesheet" href="/static/css/page/atlas/list.css">
+<style>
+	#content {
+		background: rgb(238, 238, 238);
+	}
+</style>
+<div class="mod-user-atlas-list mod-atlas-list" data-type="all">
+	<% if(path) { %>
+	<a href="${path}" class="action-paresh">
+		<div class="ui basic button" style="float: right;">
+			<i class="icon angle double left"></i>
+			返回
+		</div>
+	</a>
+	<% } %>
+	<% if (list.length == 0) { %>
+	<div>空空如也</div>
+	<% } else { %>
+	<%
+		var headItem = list[0];
+		var user = headItem['user'];
+		var headUrl = user.headUrl;
+		var ta = user['sex'] == 'boy' ? '他' : '她';
+	%>
+	<h2 class="title">
+		<img src="${user.headUrl}" alt="" style="width: 48px;height: auto;display: inline-block;">
+		<div>
+			<p>${user['nickname']}</p>
+			<p>${ta}的最新${list.length}个图集</p>
+		</div>
+	</h2>
+	<div class="box-wrapper">
+		<div class="ui active centered large inline loader" style="height: 100%; display: block; width: 100%;"></div>
+	</div>
+	<% } %>
+</div>
+<script src="/static/js/mod/common/lazy.js"></script>
+<script src="/static/js/mod/user/user-atlas.js"></script>

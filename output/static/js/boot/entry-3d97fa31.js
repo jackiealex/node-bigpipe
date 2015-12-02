@@ -1,0 +1,1 @@
+define(function(){require(["app"],function(e){new e})})

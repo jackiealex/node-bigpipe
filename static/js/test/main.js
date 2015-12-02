@@ -1,0 +1,1 @@
+define(["require"],function(e){require(["merge/m","merge/n"],function(e){})});

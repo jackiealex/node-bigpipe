@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="/static/css/test/pagelet.demo/view/layout.css">
+<div class="mod-test" >
+	<div class="sub-a">
+		<div class="ui segment" style="height: 100%;">
+			<div class="ui active inverted dimmer">
+				<div class="ui text loader">Loading</div>
+			</div>
+			<p></p>
+		</div>
+	</div>
+	<div class="sub-b">
+		<div class="ui segment" style="height: 100%;">
+			<div class="ui active inverted dimmer">
+				<div class="ui text loader">Loading</div>
+			</div>
+			<p></p>
+		</div>
+	</div>
+</div>
+<div style="margin-top: 20">
+	1. 后端通过PageletManager 建立pagelet的依赖关系，将树形关系转换成线性依赖关系，返还给前端 <br>
+	2. 后端所有的pagelet instance是平行输出的，实现IO并行化的效果<br>
+	3. 前端根据依赖关系决策视图展示顺序<br>
+</div>

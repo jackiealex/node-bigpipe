@@ -1,0 +1,1 @@
+define(["mod/test/circular/b"],function(e){require(["mod/test/circular/c"],function(){})})

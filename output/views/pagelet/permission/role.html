@@ -1,0 +1,25 @@
+<div class="panel">
+	<div class="col">
+		<% for(var i = 0; i < list.length; i = i + 2) { %>
+		<%
+			var item = list[i];
+			var authorities = item['authorities'];
+		%>
+			<%include name="pagelet/permission/role-item" var="{item: item, authorities: authorities}" /%>
+		<% } %>
+	</div>
+	<div class="col">
+		<% for(var i = 1; i < list.length; i = i + 2) { %>
+		<%
+			var item = list[i];
+			var authorities = item['authorities'];
+		%>
+			<%include name="pagelet/permission/role-item" var="{item: item, authorities: authorities}" /%>
+		<% } %>
+	</div>
+</div>
+
+<link rel="stylesheet" href="/static/css/lib/animate.css">
+
+<script src="/static/js/base/zepto-dnd.js"></script>
+<script src="/static/js/mod/permission/role.js"></script>

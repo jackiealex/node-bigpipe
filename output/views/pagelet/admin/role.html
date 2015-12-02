@@ -1,0 +1,35 @@
+<div class="role-panel">
+	<h2 class="close" title="关闭权限栏"> ╳ </h2>
+<% for(var i = 0; i < list.length; i++) { %>
+<%
+	var item = list[i];
+	var authorities = item['authorities'];
+%>
+	<div class="item role animated zoomIn"  data-id="${item.id}">
+		<h2>角色名：<span>${item.name}</span>
+			<p>${item.description}</p>
+		</h2>
+		<ul>
+			<% if (authorities.length == 0) { %>
+				<li class="empty">拖拽权限到这里！</li>
+			<% } else { %>
+				<% for(var j = 0; j < authorities.length; j ++) { %>
+				<%
+					var authItem = authorities[j];
+				%>
+				<li class="item url" data-id="${authItem.id}">
+					<h4><i class="icon fork"></i>${authItem.url}</h4>
+					<div>
+						<div class="name" >名称：${authItem.name}</div>
+						<div class="url">描述：${authItem.description}</div>
+					</div>
+				</li>
+				<% } %>
+			<% } %>
+		</ul>
+	</div>
+<% } %>
+</div>
+
+<link rel="stylesheet" href="/static/css/lib/animate.css">
+<script src="/static/js/base/zepto-dnd.js"></script>

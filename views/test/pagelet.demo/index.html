@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="/static/css/reset.css?__inline">
+	<link rel="stylesheet" href="/static/css/test/pagelet.demo/layout.css?__inline&delay=6">
+
+</head>
+<body>
+	<div id="header">
+		top top top, mmd.
+	</div>
+	<div id="sidebar">
+		<div class="group">
+			<h2>测试案例</h2>
+			<ul>
+				<li><a href="/test/view" class="action-paresh" >单视图</a></li>
+				<li><a href="/test/layout" class="action-paresh" >多重嵌套视图</a></li>
+				<li><a href="/test/load" class="action-paresh" >加载更多</a></li>
+				<li><a href="/test/delay1" class="action-paresh" >延迟1秒</a></li>
+				<li><a href="/test/delay2" class="action-paresh" >延迟超过1秒</a></li>
+				<li><a href="/test/tmpl" class="action-paresh" >模版引擎</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="main">
+		i will be the content, Uh i always late!
+	</div>
+	<script src="/static/js/base/require.js"></script>
+	<script src="/static/js/base/jquery-2.1.4.js"></script>
+	<script src="/static/js/base/underscore.js"></script>
+	<script src="/static/js/boot/SmartPipe.js"></script>
+	
+	<script>
+		var _SmartPipe_ = new SmartPipe({});
+	</script>
+
+	<script>
+		require(['/static/js/boot/appcore.js'], function  (APPCore) {
+			new APPCore()
+		})
+	</script>
+	 
+</body>
+</html>

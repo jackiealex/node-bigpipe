@@ -1,0 +1,50 @@
+<div class="header">
+	<div class="col ui form">
+		<div class="four fields">
+			<div class="field">
+				<label>用户名</label>
+				<input class="uname" placeholder="用户名" type="text">
+			</div>
+			<div class="field">
+				<label>密码</label>
+				<div class=" ui  icon action input password">
+					<input class="pass" placeholder="密码" type="password">
+					<button class="ui icon button orange">
+						<i class="icon lock" ></i>
+					  </button>
+				</div>
+			</div>
+			<div class=" field  ">
+				<label>发送方式</label>
+				<div class="fields tow">
+					<div class="inline field">
+					<%
+						var a = Date.now() + 'a';
+						var b = Date.now() + 'b';
+					%>
+						<div class="ui  checkbox app-inner">
+							<input value="1" type="checkbox" id="${a}" >
+							<label for="${a}">消息推送</label>
+						</div>
+					</div>
+					<div class="inline field short-message">
+						<div class="ui  checkbox">
+							<input value="2" type="checkbox" id="${b}" >
+							<label for="${b}">短信发送</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class=" field">
+				<!-- <label for="">&nbsp;</label> -->
+				<div class="ui button green massive btn-send-message">发送</div>
+			</div>
+		</div>
+		<div class="col ui form" style="margin-top: 10px;">
+			<div class="field">
+				<label>消息内容</label>
+				<textarea class="msg-content" style="min-height:50px; height: 50px;"></textarea>
+			</div>
+		</div>
+	</div>
+	<link rel="stylesheet" href="/static/css/page/message-by-group/header.css">

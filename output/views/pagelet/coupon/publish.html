@@ -1,0 +1,44 @@
+<link rel="stylesheet" href="/static/css/page/poster/publish.css">
+<div class="mod-poster-publish">
+	<a onclick="javascript:history.back(-1)" class="ui button green action-paresh" style="margin-bottom: 20px;">返回</a>
+	<form class="ui form" action="/_bridge/coupon" method="post" onsubmit="onsubmit()">
+		<div class="three fields">
+			<div class="field">
+				<label for="">金额</label>
+				<input type="number" placeholder="金额" name="money" value="" />
+			</div>
+			<div class="field">
+				<label for="">满多少可用</label>
+				<input type="number" placeholder="满多少可用" name="limit" value="" />
+			</div>
+			<div class="field">
+				<label for="">时长(天)</label>
+				<input type="number" placeholder="时长" name="time" value="" />
+			</div>
+		</div>
+		<div class="three fields">
+			<div class="field">
+				<label for="">使用方式</label>
+				<select class="ui fluid dropdown" name="mode" placeholder="所属区域">
+					<option value="0" selected="selected">--请选择--</option>
+					<option value="1">发放</option>
+					<option value="2">领取</option>
+				</select>
+			</div>
+			<div class="field">
+				<label for="">描述</label>
+				<input type="text" placeholder="描述" name="text" value="" />
+			</div>
+			<div class="field">
+				<label for="">红包标识</label>
+				<select class="ui fluid dropdown" name="code" placeholder="红包标识">
+					<option value="1" selected="selected">普通红包</option>
+					<option value="2">生日红包</option>
+					<option value="3">注册红包</option>
+				</select>
+			</div>
+		</div>
+		<div class="ui button green big large btn-submit" style="margin: 20px;">提交</div>
+	</form>
+</div>
+<script type="text/javascript" src="/static/js/mod/coupon/publish.js"></script>

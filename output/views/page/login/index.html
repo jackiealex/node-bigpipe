@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>登录</title>
+	<link rel="stylesheet" href="/static/css/page/login/index.css">
+	<script type="text/javascript">
+		window['_NA_'] = {
+			mode: '${mode}'
+		};
+	</script>
+	<!-- START md5  -->	
+	
+	<!-- END md5  -->
+	<style>
+	.status-code {
+		
+	}
+	</style>
+</head>
+<body>
+	<%
+		var code = code || '';
+		var msg ='';
+	%>
+	<div class="login" >
+	<form action="/passport/check" method="post" onsubmit="return doSubmit(this);">
+		<h2>登录</h2>
+		<div class="row">
+			<input type="text" required name="username" placeholder="账号" />
+		</div>
+		<div class="row">
+			<input type="password" required name="password-raw"  placeholder="密码" />
+			<input type="hidden" required name="password" id="pass" placeholder="密码" />
+		</div>
+		<% 
+			if(code==50004) { 
+				msg = '提示，服务不可用';
+		  	} else if(code==40303) {
+				msg = '用户名或密码错误';
+		 	} else if(code==55) { 
+				msg = '请您尽快关注网络问题';
+			} 
+		%>
+		<% if(msg) { %>
+		<div class="row status-code">
+			<p>${msg}</p>
+		</div>
+		<% } %>
+		<div class="row">
+			<input type="submit"  class="sbtnSubmit" value="登录">
+		</div>	
+	</form>
+	</div>
+	<script>
+	function doSubmit (form) {
+		document.getElementById('pass').value = md5(form['password-raw'].value);
+		return true;
+	}
+	</script>
+	<script type="text/javascript"  src="/static/js/base/md5.js"></script>
+</body>
+</html>

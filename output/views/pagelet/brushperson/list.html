@@ -1,0 +1,72 @@
+<div class="mod-brushperson-list mod" >
+ 	<div class="header">
+		<a href="/brush/person/publish" class="ui down button action-paresh">
+			<i class="user icon"></i>
+			添加人
+		</a>
+ 	</div>
+ 	<div class="ui form">
+		<div class="fields">
+			<div class=" field inline">
+				<div class="ui small icon input   corner labeled  ">
+					<input readonly="readonly" placeholder="开始日期" type="text" class="dnu-start" value="${startDate}">
+					<i class="calendar icon"></i>
+					<div class="ui corner label" title="清除日期">
+						<i class="remove icon"></i>
+					</div>
+				</div>
+			</div>
+			<div class="field inline">
+				<div class="ui small icon input   corner labeled  ">
+					<input readonly="readonly" placeholder="结束日期" type="text" class="dnu-end" value="${endDate}">
+					<i class="calendar icon"></i>
+					<div class="ui corner label" title="清除日期">
+						<i class="remove icon"></i>
+					</div>
+				</div>
+			</div>
+			<button href="" class="ui  button blue btn-date-click" >确定 </button>
+		</div>
+	</div>
+ 	<div class="container">
+	 	<div class="list">
+			<table class="ui celled striped table attached">
+				<thead>
+					<tr>
+						<th>手机号</th>
+						<th>姓名</th>
+						<th>总量（单数，金额）</th>
+						<th>支付宝（单数，金额）</th>
+						<th>微信（单数，金额）</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% 
+					for (var i = 0; i < list.length; i ++) {
+						var item = list[i];
+					%>
+					<tr>
+						<td>
+							${item.phone}
+						</td>
+						<td>${item.name}</td>
+						<td>（${item.totals.total.count}，${item.totals.total.total}）</td>
+						<td>（${item.totals.alipay.count}，${item.totals.alipay.total}）</td>
+						<td>（${item.totals.weixin.count}，${item.totals.weixin.total}）</td>
+						<td>
+						<a href="/brush/person/detail?userId=${item.userId}&start=${start}&end=${end}&listpage=${page.current}" class="ui blue button action-paresh">详情</a>
+						<button class="ui red button btn-brush-delete" data="${item.userId}">删除</button></td>
+					</tr>
+					<% } %>
+				</tbody>
+			</table>
+			<%if(page) { %>
+			<%include name="common/widgets/pagenavi.html" var="page" /%>
+			<%}%>
+		</div>
+	</div>
+</div>
+<link rel="stylesheet" href="/static/css/page/brushperson/list.css">
+<link rel="stylesheet" href="/static/plugins/datetime.picker/jquery.datetimepicker.css">
+<script src="/static/js/mod/brushperson/list.js"></script>

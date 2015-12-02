@@ -1,0 +1,63 @@
+<link rel="stylesheet" href="/static/css/page/admin/role-brief.css">
+<div class="mod-admin-publish" style="padding: 20px;">
+<style>
+	.row {
+		margin-top: 20px;
+	}
+</style>
+	<form action="/_bridge/admin" method="post">
+		
+		<div class="row">
+			<div class="ui left icon input">
+				<input placeholder="用户名" type="text" name="username" value=""  autofocus />
+				<i class="user icon"></i>
+			</div>
+		</div>
+		<div class="row">
+			<div class="ui left icon input">
+				<input placeholder="密码(最少输入6位...)" type="password" name="raw-password"  />
+				<i class="lock icon"></i>
+			</div>
+		</div>
+		<div class="row">
+			<div class="ui left icon input">
+				<input placeholder="确认密码" type="password" name="re-password"  />
+				<i class="lock icon"></i>
+			</div>
+		</div>
+		<div class="row">
+			<div class="ui left icon input">
+				<input placeholder="昵称" type="text" name="nickname"  />
+				<i class="child icon"></i>
+			</div>
+		</div>
+		<div class="row">
+			<div class="ui left icon input">
+				<input placeholder="邮箱" type="text" name="email"  />
+				<i class="mail icon"></i>
+			</div>
+		</div>
+		<div class="row ui form">
+			<div class="field labled left ui left top icon input">
+				<textarea name="content" placeholder="备注" style="height: 80px; width: 80%;"></textarea>
+			</div>
+		</div>
+		<div class="role-box">
+			<h2>点击选择角色（红色为选中）</h2>
+			<%include "pagelet/admin/preview-role" "{list: list}" %>
+		</div>
+		<div class="row">
+			<div class="ui button btn-submit positive ">
+			  <i class="add user icon"></i>
+			  添加
+			</div>
+		</div>
+	</form>
+</div>
+
+<script src="/static/js/mod/admin/publish.js"></script>
+
+
+
+	
+ 

@@ -1,0 +1,35 @@
+
+<style>
+	#content {
+		background: rgb(238, 238, 238);
+	}
+</style>
+
+<div class="mod-atlas-list" data-type="${type}">
+	<%
+		var tabName = tabName || 'all';
+		var tabAll = '';
+		var tabMine = '';
+		var tabTimer = '';
+		var tabPopout = '';
+		if (tabName == 'mine') {
+			tabMine = 'on';
+		} else if (tabName == 'timer') {
+			tabTimer = 'on';
+		} else if (tabName == 'top') {
+			tabPopout = 'on';
+		} else {
+			tabAll = 'on'
+		}
+	%>
+ 	<%
+		var list = data['list'];
+	%>
+	<div class="box-wrapper">
+		<div class="ui active centered large inline loader" style="height: 100%; display: block; width: 100%;"></div>
+	</div>
+	<%include name="common/widgets/pagenavi.html" var="page" /%>
+</div>
+<link rel="stylesheet" href="/static/css/page/atlas/list.css">
+<script src="/static/js/mod/common/lazy.js"></script>
+<script src="/static/js/mod/atlas/list.js"></script>

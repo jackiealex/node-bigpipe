@@ -1,0 +1,1 @@
+define(["merge/a","merge/b"],function(e,t){return require(["merge/o/x"],function(){console.log("ox loaded")}),{a:e,b:t}})

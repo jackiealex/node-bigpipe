@@ -1,0 +1,168 @@
+<div class="mod-user-list">
+	<div class="header">
+		<div class="ui form">
+			<div class="fields">
+				<div class=" field inline"  data-field="nickname">
+					<div class="ui small icon input   corner labeled   ">
+						<input type="text" placeholder="昵称或电话" onfocus="this.select()" value="${nickname}" style="width: 200px" />
+						<% if(nickname) {%>
+						<div class="ui corner label" title="清除">
+							<i class="remove icon"></i>
+						</div>
+						<% } %>
+					</div>
+				</div>
+				<div class="field inline"  data-field="createDate">
+					<div class="ui small icon input   corner labeled  ">
+						<input readonly="readonly" placeholder="注册日期" type="text" class="dnu-create" value="${createDate}">
+						<i class="calendar icon"></i>
+						<% if(createDate) {%>
+						<div class="ui corner label" title="注册日期">
+							<i class="remove icon"></i>
+						</div>
+						<% } %>
+					</div>
+				</div>
+				<!-- condition field -->
+				<% if(gender) {%>
+				<div class=" field inline "data-field="gender" >
+					<div class="ui labeled icon top left pointing dropdown button green" >
+						<span class="text">${genderText}</span>
+						<i class="remove icon" title="清除过滤器"></i>
+						<div class="menu">
+							<div class="item gender-item" data-field="gender" data-value="male">
+								<div class="ui red empty circular label"></div>
+								男
+							</div>
+							<div class="item gender-item " data-field="gender" data-value="female" >
+								<div class="ui green empty circular label"></div>
+								女
+							</div>
+						</div>
+					</div>
+				</div>
+				<% } %>
+				<% if(status != undefined ) { %>
+				<div class=" field inline "  data-field="status">
+					<div class="ui labeled icon top left pointing dropdown button green">
+						<span class="text">${statusText}</span>
+						<i class="remove icon" title="清除过滤器"></i>
+						<div class="menu">
+							<div class="item " data-field="status" data-value="0">
+								<div class="ui empty circular label"></div>
+								听歌离线
+							</div>
+							<div class="item  " data-field="status" data-value="1">
+								<div class="ui green empty circular label"></div>
+								听歌在线
+							</div>
+							<div class="item  " data-field="status" data-value="2">
+								<div class="ui red empty circular label"></div>
+								唱歌在线
+							</div>
+							<div class="item " data-field="status" data-value="3">
+								<div class="ui  empty circular label"></div>
+								唱歌离线
+							</div>
+						</div>
+					</div>
+				</div>
+				<% } %>
+				<div class=" field inline ">
+					<div class="ui labeled icon top left pointing dropdown button green">
+						<span class="text">高级查询</span>
+						<i class="filter icon"></i>
+						<div class="menu">
+							<div class="header">
+								<i class="filter icon"></i>
+								提示，以下过滤器类型为AND
+							</div>
+							<div class="divider"></div>
+							<div class="header">
+								<i class="intergender icon"></i>
+								选择性别
+							</div>
+							<div class="item gender-item" data-field="gender" data-value="male">
+								<div class="ui red empty circular label"></div>
+								男
+							</div>
+							<div class="item gender-item " data-field="gender" data-value="female" >
+								<div class="ui green empty circular label"></div>
+								女
+							</div>
+							<div class="divider"></div>
+							<div class="header">
+								<i class="spy icon"></i>
+								选择状态
+							</div>
+							<div class="item status" data-field="status" data-value="1">
+								<i class="lightning icon status-item"></i>
+								在线状态
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class=" field inline ">
+					<div class="ui active blue  button search">
+						<i class="search icon"></i>
+						搜索
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row" style="padding: 12px 0">
+			<a class="ui down button orange btn-select-all">
+				<i class="checkmark  box icon"></i>
+				全选
+			</a>
+			<a class="ui down button orange btn-reverse-select">
+				<i class="checkmark  box icon"></i>
+				反选
+			</a>
+			<div class="ui labeled button " tabindex="0">
+				<div class="ui red button btn-add-cart">
+					<i class="add to cart icon"></i> 加入已选
+				</div>
+				<a class="ui basic red left pointing label btn-show-cart">
+					0项 （点击查看）
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="list">
+			<% for(var i = 0; i < list.length; i ++) { %>
+			<%
+			var item = list[i];
+			%>
+			<div class="item " title="${item.id}" data-id="${item.id}" data-phone="${item.phone}">
+				<div class="wrap">
+					<%if(!item.headPortrait) {
+					item.headPortrait = '/static/img/default.png';
+					}%>
+					<img src="${item.headPortrait}" />
+					<div class="profile">
+						<p class="name">${item.nickname}</p>
+						<p class="property">${item.gender}</p>
+						<p class="property">${item.phone}</p>
+					</div>
+				</div>
+			</div>
+			<% } %>
+			
+			
+		</div>
+		<% if (page) { %>
+		<%include name="common/widgets/pagenavi.html" var="page" /%>
+		<% } %>
+	</div>
+	<link rel="stylesheet" href="/static/css/page/message-by-group/list.css">
+	<link rel="stylesheet" href="/static/plugins/datetime.picker/jquery.datetimepicker.css">
+	<link rel="stylesheet" href="/static/css/page/user/list.css">
+	<link rel="stylesheet" href="/static/plugins/datetime.picker/jquery.datetimepicker.css">
+	<script src="/static/js/mod/common/lazy.js"></script>
+	 
+	<script type="text/javascript" src="/static/js/mod/message-by-group/index.js"></script>
+</div>
+
+

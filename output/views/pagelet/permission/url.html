@@ -1,0 +1,21 @@
+<div class="panel">
+	<h2 class="title"> 可用权限列表 </h2>
+	<ul>
+		<% for(var i = 0; i < list.length; i ++) { %>
+		<%
+			var item = list[i];
+		%>
+		<li class="item animated pulse url" data-id="${item.id}">
+			<h4><i class="icon fork"></i>${item.url}</h4>
+			<div>
+				<div class="name">名称：${item.name}</div>
+				<div class="url">描述：${item.description}</div>
+				<div class="method">方法：${item.method}</div>
+			</div>
+		</li>
+		<% } %>
+
+	</ul>
+</div>
+<script src="/static/js/base/zepto-dnd.js"></script>
+<script src="/static/js/mod/permission/url.js"></script>

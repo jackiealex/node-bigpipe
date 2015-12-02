@@ -1,0 +1,79 @@
+<div class="mod-user-list">
+	<%
+		var activeArray = [
+			{text: '已屏蔽', isActive: ''},
+			{text: '正常', isActive: ''},
+			{text: '劣质', isActive: ''}
+		];
+		activeArray[status]['isActive'] = 'active';
+	%>
+	<div class="container">
+		<div class="list">
+			<div class="ui top attached tabular menu">
+				<div class=" item">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+				<%for(var i = 0;i<activeArray.length;i++) { %>
+				<%
+					var tabItem = activeArray[i];
+					var pageValue = currentPage;
+					if(i != status) {
+						pageValue = 1;
+					}
+				%>
+				<a href="/publication/list?page=${pageValue}&status=${i}" class="${tabItem['isActive']} item action-paresh">${tabItem['text']}</a>
+				<% } %>
+			</div>
+			<table class="ui  column table segment">
+				<thead>
+					<tr>
+						<th width="10%">发布人昵称(${list.length}个)</th>
+						<th width="15%">时间</th>
+						<th width="30%">文字</th>
+						<th width="30%">照片</th>
+						<th width="10%">状态</th>
+						<th width="5%">操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% for(var i = 0; i < list.length; i ++) { %>
+					<%
+					var item = list[i];
+					%>
+					<tr class="item" data-id="${item.id}">
+						<td>
+							${item.nickname}
+						</td>
+						<td>${item.createDate|timeFormat}</td>
+						<td>
+							${item.text}
+						</td>
+						<td>
+							<% if(item['imagesUrl']){ %>
+							<div class="ui tiny images">
+								<% for(var j = 0; j < item['imagesUrl'].length; j ++) { %>
+								<%
+									var image = item['imagesUrl'][j];
+								%>
+								<img class="ui image" src="${image}">
+								<% } %>
+							</div>
+							<% } %>
+						</td>
+						<td>
+							<% if(item.quality == 0){%><a class="ui red tag label">已屏蔽</a>
+							<% }else if(item.quality == 1){%><a class="ui teal tag label">正常</a>
+							<% }else{ %><a class="ui teal tag label">劣质</a><% } %>
+						</td>
+						<td><i name="status_operate" class="privacy icon" ></i></td>
+					</tr>
+					<% } %>
+				</tbody>
+			</table>
+			<%if(page) { %>
+			<%include name="common/widgets/pagenavi.html" var="page" /%>
+			<%}%>
+		</div>
+	</div>
+</div>
+<link rel="stylesheet" href="/static/css/page/user/list.css">
+<script src="/static/js/mod/common/lazy.js"></script>
+<script type="text/javascript" src="/static/js/mod/publication/list.js"></script>

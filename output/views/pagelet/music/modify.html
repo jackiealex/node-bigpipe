@@ -1,0 +1,145 @@
+<link rel="stylesheet" href="/static/css/page/music/publish.css">
+<div class="mod-music-publish">
+	<a onclick="javascript:history.back(-1)" class="ui button green action-paresh" style="margin-bottom: 20px;">返回</a>
+	<form class="ui form" action="/_bridge/accompany/modify" method="post">
+		<input type="hidden" name="id" value="${accompany.id}"/>
+		<input type="hidden" name="status" value="${accompany.status}"/>
+		<div class="three fields">
+			<div class="field">
+				<label for="">名称</label>
+				<input type="text" placeholder="名称" name="name" value="${accompany.name}" />
+			</div>
+			<div class="field">
+				<label for="">艺术家</label>
+				<input type="text" placeholder="艺术家" name="artist" value="${accompany.artist}" />
+			</div>
+			<div class="field">
+				<label for="">专辑</label>
+				<input type="text" placeholder="专辑" name="album" value="${accompany.album}" />
+			</div>
+		</div>
+		<div class="three fields">
+			<div class="field">
+				<label for="">所属区域</label>
+				<select class="ui fluid dropdown" name="area" placeholder="所属区域">
+					<% if(accompany.area == 1){ %> <option value="1" selected="selected" >华语</option><% }else{ %><option value="1">华语</option><% } %>
+					<% if(accompany.area == 2){ %> <option value="2" selected="selected" >日韩</option><% }else{ %><option value="2">日韩</option><% } %>
+					<% if(accompany.area == 3){ %> <option value="3" selected="selected" >欧美</option><% }else{ %><option value="3">欧美</option><% } %>
+					<% if(accompany.area == 4){ %> <option value="4" selected="selected" >其他</option><% }else{ %><option value="4">其他</option><% } %>
+					<% if(accompany.area == 5){ %> <option value="5" selected="selected" >粤语</option><% }else{ %><option value="5">粤语</option><% } %>
+					<% if(accompany.area == 6){ %> <option value="6" selected="selected" >闽南语</option><% }else{ %><option value="6">闽南语</option><% } %>
+				</select>
+			</div>
+			<div class="field">
+				<label for="">曲风</label>
+				<select class="ui fluid dropdown" name="style" placeholder="曲风">
+					<% if(accompany.style == 1){ %> <option value="1" selected="selected" >流行</option><% }else{ %><option value="1">流行</option><% } %>
+					<% if(accompany.style == 2){ %> <option value="2" selected="selected" >民歌</option><% }else{ %><option value="2">民歌</option><% } %>
+					<% if(accompany.style == 3){ %> <option value="3" selected="selected" >摇滚</option><% }else{ %><option value="3">摇滚</option><% } %>
+					<% if(accompany.style == 4){ %> <option value="4" selected="selected" >校园</option><% }else{ %><option value="4">校园</option><% } %>
+					<% if(accompany.style == 5){ %> <option value="5" selected="selected" >励志</option><% }else{ %><option value="5">励志</option><% } %>
+					<% if(accompany.style == 6){ %> <option value="6" selected="selected" >影视</option><% }else{ %><option value="6">影视</option><% } %>
+					<% if(accompany.style == 7){ %> <option value="7" selected="selected" >军旅</option><% }else{ %><option value="7">军旅</option><% } %>
+					<% if(accompany.style == 8){ %> <option value="8" selected="selected" >网游</option><% }else{ %><option value="8">网游</option><% } %>
+					<% if(accompany.style == 9){ %> <option value="9" selected="selected" >中国风</option><% }else{ %><option value="9">中国风</option><% } %>
+					<% if(accompany.style == 10){ %> <option value="10" selected="selected" >高音</option><% }else{ %><option value="10">高音</option><% } %>
+					<% if(accompany.style == 11){ %> <option value="11" selected="selected" >伤感</option><% }else{ %><option value="11">伤感</option><% } %>
+					<% if(accompany.style == 12){ %> <option value="12" selected="selected" >对唱</option><% }else{ %><option value="12">对唱</option><% } %>
+					<% if(accompany.style == 13){ %> <option value="13" selected="selected" >电影等</option><% }else{ %><option value="13">电影等</option><% } %>
+				</select>
+			</div>
+			<div class="field">
+				<label for="">版权方</label>
+				<input type="text" placeholder="版权方" name="copyright" value="${accompany.copyright}" />
+			</div>
+		</div>
+		<div class="four fields" style="display: none">
+			<div class="field">
+				<label for="">歌词类型</label>
+				<input type="text" placeholder="歌词类型" name="lyricType" value="${accompany.lyricType}" />
+			</div>
+			<div class="field">
+				<label for="">文件大小</label>
+				<input type="number" placeholder="文件大小" name="audioSize" value="${accompany.audioSize}" />
+			</div>
+			<div class="field">
+				<label for="">时长</label>
+				<input type="number" placeholder="时长" name="time" value="${accompany.time}" />
+			</div>
+			<div class="field">
+				<label for="">排序</label>
+				<input type="number" placeholder="排序" name="order" value="${accompany.order}" />
+			</div>
+		</div>
+		<div class="files">
+			<h2>拖放伴奏、原唱、歌词、封面图到此</h2>
+			<div class="file-box file-accompnay ">
+				<div class="preview-container"></div>
+				<div class="progress-stick"></div>
+				<p class="btn-delete">×</p>
+
+				<a href="" target="_blank" class="btn-preview">查看</a>
+				<div class="file-picker">
+				伴奏上传(AAC)
+				</div>
+				<input type="hidden" class="file-hidden" name="audioUrl"  value="${accompany.audioUrl}" />
+			</div>
+			<div class="file-box file-accompnay">
+				<div class="preview-container"></div>
+				<div class="progress-stick"></div>
+				<p class="btn-delete">×</p>
+				<a href="" target="_blank" class="btn-preview">查看</a>
+				<div class="file-picker">
+				伴奏上传(MP3)
+				</div>
+				<input type="hidden" class="file-hidden" name="urlMp3"  value="${accompany.urlMp3}" />
+			</div>
+			<div class="file-box file-music">
+				<div class="preview-container"></div>
+				<div class="progress-stick"></div>
+				<p class="btn-delete">×</p>
+				<a href="" target="_blank" class="btn-preview">查看</a>
+				<div class="file-picker">
+				原唱上传(AAC)
+				</div>
+				<input type="hidden" class="file-hidden" name="shakelightUrl"  value="${accompany.shakelightUrl}" />
+			</div>
+			<div class="file-box file-music">
+				<div class="preview-container"></div>
+				<div class="progress-stick"></div>
+				<p class="btn-delete">×</p>
+				<a href="" target="_blank" class="btn-preview">查看</a>
+				<div class="file-picker">
+				原唱上传(MP3)
+				</div>
+				<input type="hidden" class="file-hidden" name="shakelightMp3"  value="${accompany.shakelightMp3}" />
+			</div>
+			<div class="file-box file-lyric">
+				<div class="preview-container"></div>
+				<div class="progress-stick"></div>
+				<p class="btn-delete">×</p>
+				<a href="" target="_blank" class="btn-preview">查看</a>
+				<div class="file-picker">
+				歌词上传(lrc)
+				</div>
+				<input type="hidden" class="file-hidden" name="lyricUrl"  value="${accompany.lyricUrl}" />
+			</div>
+			<div class="file-box file-cover">
+				<div class="preview-container"></div>
+				<div class="progress-stick"></div>
+				<p class="btn-delete">×</p>
+				<a href="" target="_blank" class="btn-preview">查看</a>
+				<div class="file-picker">
+				封面图上传
+				</div>
+				<input type="hidden" class="file-hidden" name="surfaceImage"  value="${accompany.surfaceImage}" />
+			</div>
+		</div>
+		<div class="ui two bottom attached buttons " style="display: none">
+		    <div class="ui button">添加文件</div>
+		    <div class="ui button">检测完整性</div>
+		</div>
+		<div class="ui button green big large btn-submit" style="margin: 20px;">提交</div>
+	</form>
+</div>
+<script type="text/javascript" src="/static/js/mod/music/modify.js"></script>

@@ -1,0 +1,25 @@
+<ul class="category-list">
+<% for(var i = 0; i < list.length; i++) { %>
+<%
+	var cate = list[i];
+	var subcateArray = list[i].subcate || [];
+	var len = subcateArray.length;
+	var isSelected = '';
+	if(cate.id == pid) {
+		isSelected = 'selected';
+	}
+%>
+	<% for(var j = 0; j < len; j++) { %>
+	<%
+		var subcateItem = subcateArray[j];
+	%>
+	<li class="category-list-item" data-id="${subcateItem.id}">
+		<p class="name">${subcateItem.name}</p>
+		<img src="${subcateItem.surfaceImg}" title="${subcateItem.name}">
+	</li>
+	<% } %>	
+<% } %>
+</ul>
+<div class="tips">
+	点击选择分类，再次点击取消选择（可选操作）
+</div>

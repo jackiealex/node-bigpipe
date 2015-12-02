@@ -1,0 +1,273 @@
+<%
+var key = nickname;
+var conditionArray = [{}, {}]
+var genderText = gender == 'male' ? '男' : '女';
+var statusText = [
+	'听歌离线',
+	'听歌在线',
+	'唱歌在线',
+	'唱歌离线'
+][status] || '请选择在线状态';
+%>
+<div class="mod-user-list">
+	<div class="header">
+		<div class="ui form">
+			<div class="fields">
+				<div class=" field inline"  data-field="nickname">
+					<div class="ui small icon input   corner labeled   ">
+						<input type="text" placeholder="昵称或电话" onfocus="this.select()" value="${key}" style="width: 200px" />
+						<% if(key) {%>
+						<div class="ui corner label" title="清除">
+							<i class="remove icon"></i>
+						</div>
+						<% } %>
+					</div>
+				</div>
+				<div class="field inline"  data-field="createDate">
+					<div class="ui small icon input   corner labeled  ">
+						<input readonly="readonly" placeholder="注册日期" type="text" class="dnu-create" value="${createDate}">
+						<i class="calendar icon"></i>
+						<% if(createDate) {%>
+						<div class="ui corner label" title="注册日期">
+							<i class="remove icon"></i>
+						</div>
+						<% } %>
+					</div>
+				</div>
+				<!-- condition field -->
+				<% if(gender) {%>
+				<div class=" field inline "data-field="gender" >
+					<div class="ui labeled icon top left pointing dropdown button green" >
+						<span class="text">${genderText}</span>
+						<i class="remove icon" title="清除过滤器"></i>
+						<div class="menu">
+							<div class="item gender-item" data-field="gender" data-value="male">
+								<div class="ui red empty circular label"></div>
+								男
+							</div>
+							<div class="item gender-item " data-field="gender" data-value="female" >
+								<div class="ui green empty circular label"></div>
+								女
+							</div>
+						</div>
+					</div>
+				</div>
+				<% } %>
+				<% if(status != undefined ) { %>
+				<div class=" field inline "  data-field="status">
+					<div class="ui labeled icon top left pointing dropdown button green">
+						<span class="text">${statusText}</span>
+						<i class="remove icon" title="清除过滤器"></i>
+						<div class="menu">
+							<div class="item " data-field="status" data-value="0">
+								<div class="ui empty circular label"></div>
+								听歌离线
+							</div>
+							<div class="item  " data-field="status" data-value="1">
+								<div class="ui green empty circular label"></div>
+								听歌在线
+							</div>
+							<div class="item  " data-field="status" data-value="2">
+								<div class="ui red empty circular label"></div>
+								唱歌在线
+							</div>
+							<div class="item " data-field="status" data-value="3">
+								<div class="ui  empty circular label"></div>
+								唱歌离线
+							</div>
+						</div>
+					</div>
+				</div>
+				<% } %>
+
+				<div class=" field inline ">
+					<div class="ui labeled icon top left pointing dropdown button green">
+						<span class="text">高级查询</span>
+						<i class="filter icon"></i>
+						<div class="menu">
+							<div class="header">
+								<i class="filter icon"></i>
+								提示，以下过滤器类型为AND
+							</div>
+							<div class="divider"></div>
+							<div class="header">
+								<i class="intergender icon"></i>
+								选择性别
+							</div>
+							<div class="item gender-item" data-field="gender" data-value="male">
+								<div class="ui red empty circular label"></div>
+								男
+							</div>
+							<div class="item gender-item " data-field="gender" data-value="female" >
+								<div class="ui green empty circular label"></div>
+								女
+							</div>
+							<div class="divider"></div>
+							<div class="header">
+								<i class="spy icon"></i>
+								选择状态
+							</div>
+							<div class="item status" data-field="status" data-value="1">
+								<i class="lightning icon status-item"></i>
+								在线状态
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class=" field inline ">
+					<div class="ui active blue  button search">
+						<i class="search icon"></i>
+						搜索
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<%
+		var activeArray = [
+			{text: '全部', isActive: ''},
+			{text: '优质用户', isActive: ''},
+			{text: '禁用用户', isActive: ''},
+			{text: '置顶用户', isActive: ''}
+		];
+		activeArray[type]['isActive'] = 'active';
+	%>
+	<div class="container">
+		<div class="list">
+			<div class="ui top attached tabular menu">
+				<div class=" item">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+				<%for(var i = 0;i<activeArray.length;i++) { %>
+					<%
+						var tabItem = activeArray[i];
+						var pageValue = currentPage;
+						if(i != type) {
+							pageValue = 1;
+						}
+					%>
+					<% if(i == 3){ %>
+						<a href="/user/toplist?page=${pageValue}&type=${i}" class="${tabItem['isActive']} item action-paresh">${tabItem['text']}</a>
+					<% }else{ %>
+						<a href="/user/list?page=${pageValue}&type=${i}" class="${tabItem['isActive']} item action-paresh">${tabItem['text']}</a>
+					<% } %>
+				<% } %>
+			</div>
+			<% if(type == 2) { %>
+				<%include 'pagelet/user/disabled-user'  var='{list: list}' /%>
+			<% } else if(type == 3) { %>
+				<%include 'pagelet/user/top-user'  var='{list: list}' /%>
+			<% } else { %>
+			<table class="ui attached column table segment">
+				<thead>
+					<tr>
+						<th>头像(${list.length}个)</th>
+						<th>昵称</th>
+						<th>注册时间</th>
+						<th>星座／电话／年龄</th>
+						<th>性别</th>
+						<th>是否已加入歌单</th>
+						<th>状态</th>
+						<th>优质用户</th>
+						<th>是否被禁用</th>
+						<th>设定置顶</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% for(var i = 0; i < list.length; i ++) { %>
+					<%
+					var item = list[i];
+					%>
+					<tr class="item" data-id="${item.id}">
+						<td>
+							<div class="img">
+								<%if(!item.headPortrait) {
+								item.headPortrait = '/static/img/default.png';
+								}%>
+								<a target="_blank" href="http://share.vsingapp.com/profile?uid=${item['id']}">
+									<img src="${item.headPortrait}" />
+								</a>
+							</div>
+						</td>
+						<td class="nickname">
+							${item.nickname}
+							<br>
+							<%if(item.price == undefined) { %>
+								--￥
+							<% } else { %>
+							<span title="最低接单价格${item.price}￥">${item.price}￥</span>
+							<% } %>
+						</td>
+						<td>${item.createDate|timeFormat}</td>
+						<td class="">
+							<% if(item.astrological) { %>
+							<p>${item.astrological}</p>
+							<% } else { %>
+							<p>未知</p>
+							<% } %>
+							<p>
+								<i class="phone icon"></i>
+								${item['phone']}
+							</p>
+							<% if(item.age !== undefined) { %>
+							<p>${item.age}岁</p>
+							<% } else { %>
+							<p>未知</p>
+							<% } %>
+						</td>
+						<td class="sex">
+							<%if(item.gender == 'male') {%>
+							男
+							<%} else {%>
+							女
+							<% } %>
+						</td>
+						<td><% if(item.isSinger == true){ %>是<% }else{ %>否<% } %></td>
+						<td>
+							<% if(item.status == 0) { %>离线
+							<% } else if(item.status == 1) { %>买歌在线
+							<% } else if(item.status == 2) { %>卖歌在线
+							<% } else if(item.status == 3) { %>卖歌离线
+							<% } %>
+						</td>
+						<td>
+ 							<%if(item.isQuality==1) { %>
+ 							<div class="checked ui toggle checkbox">
+ 							  <input class="is-quality-change" type="checkbox" data="${item.id}" name="public" checked />
+ 							  <label></label>
+ 							</div>
+							<% } else { %>
+							<div class="ui toggle checkbox">
+							  <input class="is-quality-change" type="checkbox" data="${item.id}" name="public" />
+							  <label></label>
+							</div>
+							<% } %>
+ 						</td>
+						<td>
+							<%
+							var enabled = 'checked';
+							if(item.isEnabled) {
+								enabled = '';
+							} %>
+							<div class="ui toggle checkbox">
+								<input class="is-enabled-user-change" type="checkbox" data="${item.id}" name="public" ${enabled} />
+								<label></label>
+							</div>
+						</td>
+						<td>
+							<i name="top_setting" class="privacy icon" ></i>
+						</td>
+					</tr>
+					<% } %>
+				</tbody>
+			</table>
+			<% } %>
+			<%if(page) { %>
+			<%include name="common/widgets/pagenavi.html" var="page" /%>
+			<%}%>
+		</div>
+	</div>
+</div>
+<link rel="stylesheet" href="/static/css/page/user/list.css">
+<link rel="stylesheet" href="/static/plugins/datetime.picker/jquery.datetimepicker.css">
+<script src="/static/js/mod/common/lazy.js"></script>
+<script type="text/javascript" src="/static/js/mod/user/list.js"></script>

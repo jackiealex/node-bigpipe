@@ -1,0 +1,1 @@
+(function(){function e(e){this.options=$.extend({selector:".vision",container:window,onVision:function(e){}},e),this.init()}$.extend(e.prototype,{init:function(){this._onScrollEvents()},_onScrollEvents:function(e){$(this.options.container).on("scroll",function(){console.log(this.scrollTop)})},_update:function(){}}),$("img").lazyload({load:function(e){debugger}}),new e({})})()

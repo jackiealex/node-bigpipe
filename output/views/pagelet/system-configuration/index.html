@@ -1,0 +1,66 @@
+<div class="mod-system-config">
+
+	<div class="ui message">
+	  <div class="header">
+	    提示，以下仅为模版参考
+	  </div>
+	  <p>
+	  	1. 如果有占位符，修改请注意不要漏掉占位符（如：｛0｝、｛1｝）<br>
+	  	2. 占位符的使用若遇到问题，请联系服务端同学<br>
+	  	3. 内置配置不能删除 <br>
+	  	4. 内置配置描述不可修改	
+	  </p>
+	</div>
+	<button class="ui green button btn-add-item">
+	  <i class="add icon"></i>
+	  添加配置行
+	</button>
+	<br><br>
+
+	<table class="ui celled striped table">
+		<thead>
+    		<tr><th colspan="6">
+      		配置列表
+    		</th>
+  			</tr>
+  			<tr>
+  				<th>名字（只能英文）</td>
+  				<th>配置值</td>
+  				<th>类型（服务端/客户端）</td>
+  				<th>是否内置</td>
+  				<th>描述</td>
+  				<th>操作</td>
+  			</tr>
+  		</thead><tbody>
+	<% for(var i=0; i<list.length; i++) { %>
+	<%
+		var item = list[i];
+	%>
+	<tr>
+      <td class="collapsing" data-name="${item.name}">
+        <i class="file outline icon"></i>${item.name}
+      </td>
+      <td data-value="${item.value}"><p>${item.value}</p></td>
+      <td class="collapsing">
+      	<% if(item.type == 1) { %>服务端
+      	<% } else { %>客户端
+      	<% } %>
+      </td>
+      <td class="collapsing">
+      	<% if(item.isSystem) { %>是
+      	<% } else { %>否
+      	<% } %>
+      </td>
+      <td data-description="${item.description}"><p>${item.description}</p></td>
+      <td class="right aligned collapsing">
+      	<button class="button blue ui config-mod">修改</button>
+      	<% if(!item.isSystem) { %>
+      	<button class="ui red button config-del">删除</button>
+      	<% } %>
+      </td>
+    </tr>
+	<% } %>
+	</table>
+</div>
+<link rel="stylesheet" href="/static/css/page/system-configuration/index.css">
+<script type="text/javascript" src="/static/js/mod/system-configuration/index.js"></script>

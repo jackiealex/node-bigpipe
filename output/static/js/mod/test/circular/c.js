@@ -1,0 +1,1 @@
+define(["mod/test/circular/a","mod/test/circular/b"],function(e){})

@@ -1,0 +1,112 @@
+<link rel="stylesheet" href="/static/css/page/applaunch/publish.css">
+<link rel="stylesheet" href="/static/plugins/datetime.picker/jquery.datetimepicker.css">
+<div class="mod-applaunch">
+	<form action="/applaunch/create" method="post" id="mod-applunch">
+		<!-- imageFile -->
+		<div class="row lunch-image">
+			<h3 class="label">点击上传图片</h3>
+			<%include 'common/widgets/input-image-preview'  '{name: "files"}' %>
+			
+		</div>
+		<!-- name -->
+		<div class="row">
+			<h3 class="label">名称</h3>
+			<div class="ui form">
+			    <input name="name" class="start-page-name" style="width:250px;" type="text" />
+			</div>
+		</div>
+
+		<!-- startTime -->
+		<div class="row">
+			<h3 class="label">起始日期</h3>
+			<div class="ui  icon input   corner labeled  ">
+				<input type="text" readonly class="datetimepicker start-date" name="input-starttime" style="margin-bottom: 8px;"  placeholder="起始日期" />
+				<i class="calendar icon"></i>
+				<div class="ui corner label clear-stime" title="清除日期">
+					<i class="remove icon"></i>
+				</div>
+			</div>
+		</div>
+
+		<!-- endTime  -->
+		<div class="row">
+			<h3 class="label">结束日期</h3>
+			<div class="ui  icon input   corner labeled  ">
+				<input type="text" readonly class="datetimepicker end-date" name="input-endtime" style="margin-bottom: 8px;"  placeholder="结束日期" />
+				<i class="calendar icon"></i>
+				<div class="ui corner label clear-etime" title="清除日期">
+					<i class="remove icon"></i>
+				</div>
+			</div>
+		</div>
+
+		<!-- type -->
+		<div class="field">
+			<h3 class="label">包名</h3>
+			<div class="ui buttons resource-type anzhuo">
+				<div class="ui button " data-type="com.ringcrop.ku">铃声裁剪大师</div>
+				<div class="or"></div>
+				<div class="ui  button" data-type="com.musicropku">音乐裁剪大师</div>
+				<div class="or"></div>
+				<div class="ui  button" data-type="com.lingshengku">安卓铃声</div>
+				<div class="or"></div>
+				<div class="ui  button" data-type="com.shouji.ku">手机铃声酷</div>
+				<div class="or"></div>
+				<div class="ui  button positive" data-type="com.tplus">Tplus</div>
+			</div>
+		</div>
+		<div class="row jump-type">
+			<h3 class="label">跳转类型</h3>
+			<div class="ui buttons resource-type">
+				<div class="ui button positive person-page" data-id="to_someone">跳个人页</div>
+				<div class="or"></div>
+				<div class="ui  button label-activity" data-id="to_activity">跳活动标签</div>
+				<div class="or"></div>
+				<div class="ui  button label-brand" data-id="to_brand">跳品牌标签</div>
+				<div class="or"></div>
+				<div class="ui button web-site" data-id="to_download">下载链接</div>
+				<div class="or"></div>
+				<div class="ui button web-site" data-id="to_webview">H5</div>
+				<div class="or"></div>
+				<div class="ui button just-image" data-id="to_nowhere">引导图</div>
+			</div>
+		</div>
+		<div class="row search-user-component" style="position: relative;">
+			<div class="ui right icon input  name-search-box">
+				<input type="text"  class="name-search-input" placeholder="根据用户名搜索" />
+				<input type="hidden" name="nameid" class="name-search-id" />
+				<i class="tags icon"></i>
+				<ul class="ui-suggestion"> </ul>
+			</div>
+		</div>
+		<div class="row search-label-component" style="position: relative;">
+			<div class="ui right icon input  label-search-box">
+				<input type="text"  class="label-search-input" placeholder="根据标签名搜索" />
+				<input type="hidden"  class="label-search-id" name="labelid" />
+				<i class="tags  icon"></i>
+				<ul class="ui-suggestion"> </ul>
+			</div>
+		</div>		
+		<div class="row jump-url">
+			<div class="ui icon input">
+				<input type="url" name="url" placeholder="跳转链接(自填)">
+				<i class="settings linkify icon"></i>
+			</div>
+		</div>
+		<!-- description -->
+		<div class="row">
+			<h3 class="label">说点什么</h3>
+			<div>
+				<div class="ui form">
+				    <textarea wrap="virtual" style="min-height: 48px;height: 48px; width: 600px;" name="description" maxlength="40" placeholder="最多输入40个字符..."></textarea>
+				</div>
+			</div>
+		</div>
+
+		<div class="row" style="margin-top: 20px;">
+			<div class="ui btn-submit primary button">提交</div>
+		</div>
+	</form>
+</div>
+
+<script type="text/javascript" src="/static/js/mod/applaunch/publish.js"></script>

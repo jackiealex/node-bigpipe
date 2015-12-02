@@ -1,0 +1,228 @@
+.class-page-navi {
+  position: relative;
+  margin-top: 20px;
+}
+.class-page-navi .port {
+  position: absolute;
+  right: -200px;
+  background: none;
+rgba(39,41,43,0.15)
+  display: -moz-box;
+/* OLD - Firefox 19- (buggy but mostly works) */
+  display: flex;
+  display: -webkit-box;
+/* OLD - iOS 6-, Safari 3.1-6 */
+  display: -ms-flexbox;
+/* TWEENER - IE 10 */
+  display: -webkit-box;
+/* NEW - Chrome */
+  -webkit-box-align: center;
+  -o-box-align: center;
+  -moz-box-align: center;
+  -ms-box-align: center;
+  box-align: center;
+  border: 1px solid rgba(39,41,43,0.15);
+  border-radius: 0.2857rem;
+  font-size: 12px;
+}
+.class-page-navi .port div {
+  padding: 4px;
+}
+.class-page-navi .port input {
+  min-width: 60px;
+  display: block;
+  margin: 0;
+  padding: 4px;
+  border: none;
+  background: rgba(39,41,43,0.15);
+}
+.class-page-navi .port .input {
+  background: none;
+  outline: none;
+}
+.class-page-navi .port .input:focus {
+  outline: none;
+  color: #000;
+  font-weight: bold;
+}
+.class-page-navi .pin {
+  border: none !important;
+  cursor: default;
+  margin-left: -1px;
+}
+.file-picker input[type="file"] {
+  display: none;
+}
+.class-btn-add-files,
+.mod-publish .drop-zone .btnAddFiles {
+  width: 200px;
+  height: 40px;
+  position: relative;
+  overflow: hidden;
+  background: #20a7e9;
+  color: #fff;
+  border-radius: 12px;
+  line-height: 40px;
+  text-align: center;
+}
+.class-btn-add-files input[type="file"],
+.mod-publish .drop-zone .btnAddFiles input[type="file"] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  opacity: 0;
+  -ms-filter: 'alpha(opacity=0)';
+  font-size: 200px;
+  direction: ltr;
+  cursor: pointer;
+}
+.class-btn-add-files .text,
+.mod-publish .drop-zone .btnAddFiles .text {
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+}
+.mod-publish {
+  display: -moz-box;
+/* OLD - Firefox 19- (buggy but mostly works) */
+  display: flex;
+  display: -webkit-box;
+/* OLD - iOS 6-, Safari 3.1-6 */
+  display: -ms-flexbox;
+/* TWEENER - IE 10 */
+  display: -webkit-box;
+/* NEW - Chrome */
+}
+.mod-publish .file-box {
+  display: -moz-box;
+/* OLD - Firefox 19- (buggy but mostly works) */
+  display: flex;
+  display: -webkit-box;
+/* OLD - iOS 6-, Safari 3.1-6 */
+  display: -ms-flexbox;
+/* TWEENER - IE 10 */
+  display: -webkit-box;
+/* NEW - Chrome */
+  width: 220px;
+  height: 280px;
+}
+.mod-publish .clear::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.mod-publish .drop-zone {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: 2px dashed #dfdfdf;
+  border-radius: 6px;
+  position: relative;
+  background: url("/static/img/icons/image-upload.png") no-repeat center 40px;
+}
+.mod-publish .drop-zone.webuploader-dnd-over {
+  border: 2px dashed #999;
+}
+.mod-publish .drop-zone:hover .tips {
+  color: #999;
+}
+.mod-publish .drop-zone .tips {
+  text-align: center;
+  color: #eee;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  font-size: 18px;
+}
+@-moz-keyframes dot-highlight {
+  0% {
+    box-shadow: 0 0 0 0px #fff, 0 0 0 0px #fff;
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(255,255,255,0.2), 0 0 0 20px rgba(255,255,255,0.1);
+  }
+  75% {
+    box-shadow: 0 0 0 5px rgba(255,255,255,0.2), 0 0 0 10px rgba(255,255,255,0.1);
+  }
+  100% {
+    box-shadow: none;
+  }
+}
+@-webkit-keyframes dot-highlight {
+  0% {
+    box-shadow: 0 0 0 0px #fff, 0 0 0 0px #fff;
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(255,255,255,0.2), 0 0 0 20px rgba(255,255,255,0.1);
+  }
+  75% {
+    box-shadow: 0 0 0 5px rgba(255,255,255,0.2), 0 0 0 10px rgba(255,255,255,0.1);
+  }
+  100% {
+    box-shadow: none;
+  }
+}
+@-o-keyframes dot-highlight {
+  0% {
+    box-shadow: 0 0 0 0px #fff, 0 0 0 0px #fff;
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(255,255,255,0.2), 0 0 0 20px rgba(255,255,255,0.1);
+  }
+  75% {
+    box-shadow: 0 0 0 5px rgba(255,255,255,0.2), 0 0 0 10px rgba(255,255,255,0.1);
+  }
+  100% {
+    box-shadow: none;
+  }
+}
+@keyframes dot-highlight {
+  0% {
+    box-shadow: 0 0 0 0px #fff, 0 0 0 0px #fff;
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(255,255,255,0.2), 0 0 0 20px rgba(255,255,255,0.1);
+  }
+  75% {
+    box-shadow: 0 0 0 5px rgba(255,255,255,0.2), 0 0 0 10px rgba(255,255,255,0.1);
+  }
+  100% {
+    box-shadow: none;
+  }
+}
+@-moz-keyframes flicker {
+  0% {
+    box-shadow: 0 0 5px 4px rgba(255,255,255,0);
+  }
+  100% {
+    box-shadow: 0 0 5px 4px rgba(131,241,241,0.7);
+  }
+}
+@-webkit-keyframes flicker {
+  0% {
+    box-shadow: 0 0 5px 4px rgba(255,255,255,0);
+  }
+  100% {
+    box-shadow: 0 0 5px 4px rgba(131,241,241,0.7);
+  }
+}
+@-o-keyframes flicker {
+  0% {
+    box-shadow: 0 0 5px 4px rgba(255,255,255,0);
+  }
+  100% {
+    box-shadow: 0 0 5px 4px rgba(131,241,241,0.7);
+  }
+}
+@keyframes flicker {
+  0% {
+    box-shadow: 0 0 5px 4px rgba(255,255,255,0);
+  }
+  100% {
+    box-shadow: 0 0 5px 4px rgba(131,241,241,0.7);
+  }
+}

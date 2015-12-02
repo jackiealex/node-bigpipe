@@ -1,0 +1,13 @@
+<%
+ 	var name = name || 'imageFile';
+ 	var title = title || '选择图片';
+ 	var clsName = clsName || '';
+%>
+<div class="row ${clsName}">
+	 
+	<div class="ui-input-image-preview">
+		<img src="/static/img/icons/image-uploader.png" alt="默认图片">
+		<input type="file" name="${name}" title="${title}" accept="image/*" required  />
+	</div>
+	<link rel="stylesheet" href="/static/css/page/common/input-image-preview.css">
+</div>

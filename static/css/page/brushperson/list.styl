@@ -1,0 +1,22 @@
+@import "../../liblus/_css3";
+@import "../../liblus/widget";
+@import "../../page/order/list";
+// start file
+.mod-brushperson-list {
+	position: relative;
+	@extend .mod-order-list 
+	.list {
+		clear()
+		padding-top: 20px;
+		img {
+			size(64px);
+			height: auto;
+			border-radius: 3px;
+			border: 1px solid #eee;
+		}
+	}	 
+}
+
+.page-nav {
+	@extend .class-page-navi
+}

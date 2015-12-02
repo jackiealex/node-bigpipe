@@ -1,0 +1,55 @@
+<link rel="stylesheet" href="/static/css/page/version/list.css">
+
+<div class="mod-version-list mod" >
+ 	<div class="header">
+		<a href="/version/publish?type=1"  class="ui down button action-paresh">
+			<i class="tag icon"></i>
+			添加版本
+		</a>
+ 	</div>
+ 	<div class="container">
+ 		<%
+ 			var activeArray = ['', ''];
+ 			activeArray[type] = 'active';
+ 		%>
+ 		<div class="list">
+	 		<div class="ui top attached tabular menu">
+	 			<div class="item">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+	 			<a href="/version/list?type=0" class="item ${activeArray[0]} action-paresh">审核控制</a>
+	 			<a href="/version/list?type=1" class="item ${activeArray[1]} action-paresh">IOS强制更新</a>
+	 		</div>
+ 			<table class="ui column table segment attached">
+ 				<thead>
+ 					<tr>
+ 						<th>链接</th>
+ 						<th>版本</th>
+ 						<th>操作</th>
+ 					</tr>
+ 				</thead>
+ 				<tbody>
+ 					
+ 					<% for(var i = 0; i < list.length; i ++) { %>
+ 					<%
+ 						var item = list[i];
+ 					%>
+ 					<tr class="item row">
+ 						<td class="url" >
+ 							${item.url}
+ 						</td>
+ 						<td class="version">
+ 							${item.version}
+ 						</td>
+ 						<td>
+ 							<i class="remove icon btn-delete ios-update-item"></i>
+						</td>
+ 					</tr>
+ 					<% } %>
+
+ 				</tbody>
+ 			</table>
+ 		</div>
+ 	</div>
+</div>
+
+<script src="/static/js/mod/version/list.js"></script>
+

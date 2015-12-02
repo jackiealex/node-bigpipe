@@ -1,0 +1,108 @@
+<div class="mod-user-list">
+	<%
+		var activeArray = [
+			{text: '缺失歌曲反馈', isActive: ''},
+			{text: '错误歌曲反馈', isActive: ''}
+		];
+		activeArray[type]['isActive'] = 'active';
+	%>
+	<div class="container">
+		<div class="list">
+			<div class="ui top attached tabular menu">
+				<div class=" item">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+				<%for(var i = 0;i<activeArray.length;i++) { %>
+				<%
+					var tabItem = activeArray[i];
+					var pageValue = currentPage;
+					if(i != type) {
+						pageValue = 1;
+					}
+				%>
+				<a href="/feedback/list?page=${pageValue}&type=${i}" class="${tabItem['isActive']} item action-paresh">${tabItem['text']}</a>
+				<% } %>
+			</div>
+			<table class="ui  column table segment">
+				<thead>
+					<tr>
+						<% if(type == 0){ %>
+							<th>歌名(${list.length}个)</th>
+							<th>歌手名称</th>
+							<th>类别</th>
+							<th>反馈人</th>
+							<th>反馈时间</th>
+							<th>状态</th>
+							<th>操作</th>
+						<% } else { %>
+							<th>歌名(${list.length}个)</th>
+							<th>歌手名称</th>
+							<th>错误内容</th>
+							<th>反馈人</th>
+							<th>反馈时间</th>
+							<th>状态</th>
+							<th>操作</th>
+						<% } %>
+					</tr>
+				</thead>
+				<tbody>
+					<% for(var i = 0; i < list.length; i ++) { %>
+					<%
+					var item = list[i];
+					%>
+					<tr class="item" data-id="${item.id}">
+						<td>
+							${item.accompanyName}
+						</td>
+						<td>${item.artist}</td>
+						<td>
+							<%if(type == 0) {%>
+							${item.area}
+							<%} else {%>
+							${item.content}
+							<% } %>
+						</td>
+						<td>
+							${item.nickname}
+						</td>
+						<td>
+							${item.createDate|timeFormat}
+						</td>
+						<td>
+ 							<%if(item.status==2) { %>
+ 							<div class="checked ui toggle checkbox">
+ 							  <input type="checkbox" data="${item.id}" name="public" checked />
+ 							  <label></label>
+ 							</div>
+							<% } else { %>
+							<div class="ui toggle checkbox">
+							  <input type="checkbox" data="${item.id}" name="public" />
+							  <label></label>
+							</div>
+							<% } %>
+ 						</td>
+						<td>
+							<% if(type == 0){ %>
+							<a href="/music/publish"  class="ui down button action-paresh">
+								<i class="tag icon"></i>
+								添加歌曲
+							</a>
+							<% } else { %>
+							<a href="/music/modify?id=${item.accompanyId}"  class="ui down button action-paresh">
+								<i class="tag icon"></i>
+								修改歌曲
+							</a>
+							<% } %>
+
+						</td>
+					</tr>
+					<% } %>
+				</tbody>
+			</table>
+			<%if(page) { %>
+			<%include name="common/widgets/pagenavi.html" var="page" /%>
+			<%}%>
+		</div>
+	</div>
+</div>
+<link rel="stylesheet" href="/static/css/page/user/list.css">
+<script src="/static/js/mod/common/lazy.js"></script>
+<script type="text/javascript" src="/static/js/mod/feedback/list.js"></script>

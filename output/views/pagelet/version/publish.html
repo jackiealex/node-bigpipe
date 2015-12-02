@@ -1,0 +1,41 @@
+<%
+	var activeArray = ['', ''];
+	activeArray[type] = 'active';
+%>
+<div class="mod-version-publish" style="padding: 20px;">
+	<div class="ui top attached tabular menu">
+		<a href="/version/publish?type=0" class="item ${activeArray[0]} action-paresh">审核控制</a>
+		<a href="/version/publish?type=1" class="item ${activeArray[1]} action-paresh">IOS强制更新</a>
+	</div>
+	<br>
+	<br>
+	<% if(type==0 || type=='0') { %>
+		<form class="ui form" action="/_bridge/client/check/version" method="post">
+			<div class="field">
+				<input type="text" placeholder="版本号" name="version" value="" />
+			</div>
+			<div class="field">
+				<input type="text" placeholder="渠道" name="channel" value="" />
+			</div>
+			<div class="field">
+				<div class="ui buttons device">
+					<div class="ui button" data-platform="ios">IOS</div>
+					<div class="or"></div>
+					<div class="ui  button" data-platform="android">Android</div>
+				</div>
+			</div>
+			<div class="ui button green big large btn-submit" style="margin: 20px;">提交</div>
+		</form>
+	<% } else { %>
+		<form class="ui form form-update" action="/_bridge/ios/update/version" method="post">
+			<div class="field">
+				<input type="text" placeholder="链接" name="url" value="" />
+			</div>
+			<div class="field">
+				<input type="text" placeholder="版本" name="version" value="" />
+			</div>
+			<div class="ui button green big large btn-force-update" style="margin: 20px;">更新</div>
+		</form>
+	<% } %>
+</div>
+<script type="text/javascript" src="/static/js/mod/version/publish.js"></script>

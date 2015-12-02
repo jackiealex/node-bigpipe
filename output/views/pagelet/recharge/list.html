@@ -1,0 +1,52 @@
+<div class="mod-user-list">
+	<div class="container">
+		<div class="list">
+			<div class="ui top attached tabular menu">
+				<div class=" item">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+				<a href="javascript:void(0)" class="active item action-paresh">全部</a>
+			</div>
+			<table class="ui  column table segment">
+				<thead>
+					<tr>
+						<th>申请人昵称(${list.length}个)</th>
+						<th>充值金额</th>
+						<th>充值方式</th>
+						<th>日期</th>
+						<th>状态</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% for(var i = 0; i < list.length; i ++) { %>
+					<%
+					var item = list[i];
+					%>
+					<tr class="item" data-id="${item.id}">
+						<td>
+							${item['user']['nickname']}
+						</td>
+						<td class="nickname">${item.number}</td>
+						<td>
+							<% if(item.payType == 1){%>微信
+							<% }else if(item.payType == 2){ %>支付宝
+							<% }else{ %>苹果<% } %>
+						</td>
+						<td>
+							${item.createDate|timeFormat}
+						</td>
+						<td>
+							<% if(item.status == 0){%><a class="ui teal tag label">处理中</a>
+							<% }else if(item.status == 1){ %><a class="ui teal tag label">成功</a>
+							<% }else{ %><a class="ui red tag label">失败</a><% } %>
+						</td>
+					</tr>
+					<% } %>
+				</tbody>
+			</table>
+			<%if(page) { %>
+			<%include name="common/widgets/pagenavi.html" var="page" /%>
+			<%}%>
+		</div>
+	</div>
+</div>
+<link rel="stylesheet" href="/static/css/page/user/list.css">
+<script src="/static/js/mod/common/lazy.js"></script>

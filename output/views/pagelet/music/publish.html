@@ -1,0 +1,143 @@
+<link rel="stylesheet" href="/static/css/page/music/publish.css">
+<div class="mod-music-publish">
+	<a onclick="javascript:history.back(-1)" class="ui button green action-paresh" style="margin-bottom: 20px;">返回</a>
+	<form class="ui form" action="/_bridge/accompany" method="post">
+		<div class="three fields">
+			<div class="field">
+				<label for="">名称</label>
+				<input type="text" placeholder="名称" name="name" value="名字" />
+			</div>
+			<div class="field">
+				<label for="">艺术家</label>
+				<input type="text" placeholder="艺术家" name="artist" value="艺术家" />
+			</div>
+			<div class="field">
+				<label for="">专辑</label>
+				<input type="text" placeholder="专辑" name="album" value="未知" />
+			</div>
+		</div>
+		<div class="three fields">
+			<div class="field">
+				<label for="">所属区域</label>
+				<select class="ui fluid dropdown" name="area" placeholder="所属区域">
+			        <option value="1"  selected="selected">华语</option>
+				    <option value="2">日韩</option>
+				    <option value="3">欧美</option>
+				    <option value="4">其他</option>
+				    <option value="5">粤语</option>
+				    <option value="6">闽南语</option>
+				</select>
+			</div>
+			<div class="field">
+				<label for="">曲风</label>
+				<select class="ui fluid dropdown" name="style" placeholder="曲风">
+			        <option value="1" selected="selected">流行</option>
+			        <option value="2">民歌</option>
+			        <option value="3">摇滚</option>
+			        <option value="4">校园</option>
+			        <option value="5">励志</option>
+			        <option value="6">影视</option>
+			        <option value="7">军旅</option>
+			        <option value="8">网游</option>
+			        <option value="9">中国风</option>
+			        <option value="10">高音</option>
+			        <option value="11">伤感</option>
+			        <option value="12">对唱</option>
+			        <option value="13">电影等</option>
+				</select>
+			</div>
+			<div class="field">
+				<label for="">版权方</label>
+				<input type="text" placeholder="版权方" name="copyright" value="－－" />
+			</div>
+		</div>
+		<div class="four fields" style="display: none">
+			<div class="field">
+				<label for="">歌词类型</label>
+				<input type="text" placeholder="歌词类型" name="lyricType" value="" />
+			</div>
+			<div class="field">
+				<label for="">文件大小</label>
+				<input type="number" placeholder="文件大小" name="audioSize" value="" />
+			</div>
+			<div class="field">
+				<label for="">时长</label>
+				<input type="number" placeholder="时长" name="time" value="" />
+			</div>
+			<div class="field">
+				<label for="">排序</label>
+				<input type="number" placeholder="排序" name="order" value="10000" />
+			</div>
+		</div>
+		<div class="files">
+			<h2>拖放伴奏、原唱、歌词、封面图到此</h2>
+			<div class="file-box file-accompnay ">
+				<div class="preview-container"></div>
+				<div class="progress-stick"></div>
+				<p class="btn-delete">×</p>
+
+				<a href="" target="_blank" class="btn-preview">查看</a>
+				<div class="file-picker">
+				伴奏上传(AAC)
+				</div>
+				<input type="hidden" class="file-hidden" name="audioUrl"  value="" />
+			</div>
+			<div class="file-box file-accompnay">
+				<div class="preview-container"></div>
+				<div class="progress-stick"></div>
+				<p class="btn-delete">×</p>
+				<a href="" target="_blank" class="btn-preview">查看</a>
+				<div class="file-picker">
+				伴奏上传(MP3)
+				</div>
+				<input type="hidden" class="file-hidden" name="urlMp3"  value="" />
+			</div>
+			<div class="file-box file-music">
+				<div class="preview-container"></div>
+				<div class="progress-stick"></div>
+				<p class="btn-delete">×</p>
+				<a href="" target="_blank" class="btn-preview">查看</a>
+				<div class="file-picker">
+				原唱上传(AAC)
+				</div>
+				<input type="hidden" class="file-hidden" name="shakelightUrl"  value="" />
+			</div>
+			<div class="file-box file-music">
+				<div class="preview-container"></div>
+				<div class="progress-stick"></div>
+				<p class="btn-delete">×</p>
+				<a href="" target="_blank" class="btn-preview">查看</a>
+				<div class="file-picker">
+				原唱上传(MP3)
+				</div>
+				<input type="hidden" class="file-hidden" name="shakelightMp3"  value="" />
+			</div>
+			<div class="file-box file-lyric">
+				<div class="preview-container"></div>
+				<div class="progress-stick"></div>
+				<p class="btn-delete">×</p>
+				<a href="" target="_blank" class="btn-preview">查看</a>
+				<div class="file-picker">
+				歌词上传(lrc)
+				</div>
+				<input type="hidden" class="file-hidden" name="lyricUrl"  value="" />
+			</div>
+			<div class="file-box file-cover">
+				<div class="preview-container"></div>
+				<div class="progress-stick"></div>
+				<p class="btn-delete">×</p>
+				<a href="" target="_blank" class="btn-preview">查看</a>
+				<div class="file-picker">
+				封面图上传
+				</div>
+				<input type="hidden" class="file-hidden" name="surfaceImage"  value="" />
+			</div>
+		</div>
+		<div class="ui two bottom attached buttons " style="display: none">
+		    <div class="ui button">添加文件</div>
+		    <div class="ui button">检测完整性</div>
+		</div>
+		<div class="ui button green big large btn-submit" style="margin: 20px;">提交</div>
+	</form>
+</div>
+<script type="text/javascript" src="/static/js/mod/music/publish.js"></script>

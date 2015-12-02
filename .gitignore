@@ -1,0 +1,11 @@
+/node_modules
+/__cache__
+/__fis_work__
+/__optimize__
+/test
+*.iml
+.DS_Store
+/.idea
+
+output/*.log
+output/dump.rdb

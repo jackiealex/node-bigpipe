@@ -1,0 +1,72 @@
+<style>
+	.mod-applaunch-list {
+		padding: 20px;
+	}
+	.mod-applaunch-list p {
+		padding: 4px;
+		white-space: normal;
+		word-break: break-word;
+	}
+</style>
+<div class="mod-applaunch-list">
+ 	<div class="list-header">
+ 		<div class="ui icon input">
+			<input type="text" placeholder="搜索启动页">
+			<i class="circular search icon"></i>
+		</div>
+		<a href="/applaunch/publish"  class="ui  button action-paresh">
+			<i class="user icon"></i>
+			添加启动页
+		</a>
+ 	</div>
+	<table class="ui  column table segment">
+		<thead>
+			<tr>
+				<th>图片</th>
+				<th>名称</th>
+				<th>起始时间</th>
+				<th>结束时间</th>
+				<th>包名</th>
+				<th>描述</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% for(var i = 0; i < list.length; i ++) { %>
+			<%
+				var item = list[i];
+			%>
+ 
+			<tr class="item" data-id="${item.id}" data-starttime="${item.startTime}" data-endtime="${item.endTime}" data-code="${item.imageKey}" data-pkg="${item.pkg}" data-type="${item.type}"> 
+				<td class="images" style="max-width:200px">
+					<img src="${item.imageUrl}" alt="" />
+					<p>类型：${item.type}</p>
+					<p>
+					<%if (item.type==4 || item.type==5) { %>
+						<a target="_blank" style="color: blue" href="${item.link}">${item.name}</a>
+					<% } else { %>
+						目标：${item.link}
+					<% } %>
+					<span class="link-text" style="display: none">${item.link}</span>
+					</p>
+				</td>
+				<td class="name">${item.name}</td>
+				<td class="starttime">${item.startTime|timeFormat}</td>
+				<td class="endtime">${item.endTime|timeFormat}</td>
+				<td class="pkg">${item.pkg}</td>
+				<td class="description" style="width:10%;">${item.description}</td>
+				<td>
+					<a data-id="${item.id}" class="del" href="void:javascript(0)">删除</a>
+				</td>
+
+			</tr>
+			<% } %>
+		</tbody>
+	</table>
+</div>
+
+<link rel="stylesheet" href="/static/css/lib/animate.css">
+<link rel="stylesheet" href="/static/plugins/datetime.picker/jquery.datetimepicker.css">
+<link rel="stylesheet" href="/static/plugins/aui-artDialog/css/ui-dialog.css">
+<script src="/static/plugins/aui-artDialog/dist/dialog-min.js"></script>
+<script type="text/javascript" src="/static/js/mod/applaunch/list.js"></script>

@@ -1,0 +1,109 @@
+@import "../../../liblus/_css3";
+@import "../../../liblus/widget";
+
+.widget-mini-player {
+	position: fixed;
+	right: 0;
+	bottom: 20px;
+	z-index: 9999;
+	background: #000;
+	padding: 16px 0 16px 0;
+	color: #fff;
+	&.none {
+		.player-box {
+			width: 0;
+		}
+	}
+	.player-box {
+		background: #000000
+		overflow: hidden;
+		transition(1s linear all)
+		box()
+		.player-info {
+			padding: 10px;
+			width: 100px;
+			color: #5C5C5C
+			h2 {
+				font-size: 14px;
+			}
+			align()
+			flex(1)
+			p {
+				margin-top: 4px;
+			}
+		}
+		.player-ctrl {
+			box()
+			align()
+			pack()
+			padding: 0 40px;
+			.btn-prev {
+				background: #000 url($imgPath + '/icons/player/prev.png') no-repeat center center;
+			}
+			.btn-play {
+				background: #000 url($imgPath + '/icons/player/play.png') no-repeat center center;
+			}
+			.btn-pause {
+				background: #000 url($imgPath + '/icons/player/pause.png?_r=1212') no-repeat center center;
+			}
+			.btn-next {
+				background: #000 url($imgPath + '/icons/player/next.png') no-repeat center center;
+			}
+			.player-button {
+				text-indent: -999px;
+				overflow: hidden;
+				margin: 12px;
+				cursor: pointer;
+				size(32px);
+				background-size(100%);
+			}
+
+		}
+		.poster {
+			size(100px)
+			margin-left: 20px;
+		}
+	}
+	.player-progress {
+		position: absolute;
+		bottom: 2px;
+		height: 4px;
+		left: 0;
+		width: 100%;
+
+		.stick {
+			height: 100%;
+			width: 0%;
+			background: red;
+			position: relative;
+			animation(none)
+			.bar {
+				position: absolute;
+				border-radius: 100%;
+				size(8px);
+				margin-top: -2px;
+				background: red;
+				right: 0;
+			}
+		}
+	}
+	.player-pan {
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100%;
+		margin-left: -20px;
+		width: 20px;
+		background: #7F0000;
+		cursor: pointer;
+		color: #999;
+		span {
+			text-align: center;
+			position: absolute;
+			left: 0;
+			width: 100%;
+			top: 50%;
+		}
+	}
+
+}

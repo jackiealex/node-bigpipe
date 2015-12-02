@@ -1,0 +1,1 @@
+define("merge/a",["require"],function(e){console.log("a")}),define("merge/b",["require"],function(e){console.log("b")}),define("merge/m",["merge/a","merge/b"],function(e,t){return setTimeout(function(e){require(["merge/o/x"],function(){console.log("ox loaded")})},4e3),{a:e,b:t}});

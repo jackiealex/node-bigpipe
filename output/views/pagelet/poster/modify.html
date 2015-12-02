@@ -1,0 +1,67 @@
+<link rel="stylesheet" href="/static/css/page/poster/publish.css">
+<div class="mod-poster-publish">
+	<a onclick="javascript:history.back(-1)" class="ui button green action-paresh" style="margin-bottom: 20px;">返回</a>
+	<form class="ui form" action="/_bridge/poster/${poster.id}/modify" method="post" onsubmit="onsubmit()">
+		<input type="hidden" name="status" value="${poster.status}"/>
+		<div class="three fields">
+			<div class="field">
+				<label for="">链接地址</label>
+				<input type="text" placeholder="http://" name="link" value="${poster.link}" />
+			</div>
+			<div class="field">
+				<label for="">开始日期</label>
+				<div class="ui small icon input   corner labeled  ">
+					<input readonly="readonly" name="startDate" placeholder="开始日期" type="text" class="dnu-start" value="${poster.startDate}">
+					<i class="calendar icon"></i>
+					<div class="ui corner label" title="清除日期">
+						<i class="remove icon"></i>
+					</div>
+				</div>
+			</div>
+			<div class="field">
+				<label for="">结束日期</label>
+				<div class="ui small icon input   corner labeled  ">
+					<input readonly="readonly" name="endDate" placeholder="结束日期" type="text" class="dnu-end" value="${poster.endDate}">
+					<i class="calendar icon"></i>
+					<div class="ui corner label" title="清除日期">
+						<i class="remove icon"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="two fields">
+			<div class="field">
+				<label for="">链接类型</label>
+				<select class="ui fluid dropdown" name="linkType" placeholder="所属区域">
+					<% if(poster.linkType == 0){ %><option value="0" selected="selected">--请选择--</option><% }else{ %><option value="0" >--请选择--</option><% } %>
+					<% if(poster.linkType == 1){ %><option value="1" selected="selected">链接</option><% }else{ %><option value="1" >链接</option><% } %>
+					<% if(poster.linkType == 2){ %><option value="2" selected="selected">app下载</option><% }else{ %><option value="2" >app下载</option><% } %>
+				</select>
+			</div>
+			<div class="field">
+				<label for="">banner显示类型</label>
+				<select class="ui fluid dropdown" name="type" placeholder="banner显示类型">
+					<% if(poster.type == 0){ %><option value="0" selected="selected">--请选择--</option><% }else{ %><option value="0" >--请选择--</option><% } %>
+					<% if(poster.type == 1){ %><option value="1" selected="selected">新手提示</option><% }else{ %><option value="1" >新手提示</option><% } %>
+					<% if(poster.type == 2){ %><option value="2" selected="selected">运营活动</option><% }else{ %><option value="2" >运营活动</option><% } %>
+				</select>
+			</div>
+		</div>
+		<div class="files">
+			<h2>拖放图片到此</h2>
+			<div class="file-box file-cover">
+				<div class="preview-container"></div>
+				<div class="progress-stick"></div>
+				<p class="btn-delete">×</p>
+				<a href="" target="_blank" class="btn-preview">查看</a>
+				<div class="file-picker">
+				banner图上传
+				</div>
+				<input type="hidden" class="file-hidden" name="imageUrl"  value="${poster.imageUrl}" />
+			</div>
+		</div>
+		<div class="ui button green big large btn-submit" style="margin: 20px;">提交</div>
+	</form>
+</div>
+<link rel="stylesheet" href="/static/plugins/datetime.picker/jquery.datetimepicker.css">
+<script type="text/javascript" src="/static/js/mod/poster/modify.js"></script>

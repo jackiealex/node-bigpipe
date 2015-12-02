@@ -1,0 +1,85 @@
+<div class="mod-user-list">
+	<%
+		var activeArray = [
+			{text: '未处理', isActive: ''},
+			{text: '已同意', isActive: ''},
+			{text: '已拒绝', isActive: ''},
+			{text: '已完成', isActive: ''}
+		];
+		activeArray[type]['isActive'] = 'active';
+	%>
+	<div class="container">
+		<div class="list">
+			<div class="ui top attached tabular menu">
+				<div class=" item">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+				<%for(var i = 0;i<activeArray.length;i++) { %>
+				<%
+					var tabItem = activeArray[i];
+					var pageValue = currentPage;
+					if(i != type) {
+						pageValue = 1;
+					}
+				%>
+				<a href="/withdraws/list?page=${pageValue}&type=${i}" class="${tabItem['isActive']} item action-paresh">${tabItem['text']}</a>
+				<% } %>
+			</div>
+			<table class="ui  column table segment">
+				<thead>
+					<tr>
+						<th>申请人昵称(${list.length}个)</th>
+						<th>提现账号</th>
+						<th>账户类型</th>
+						<th>申请金额</th>
+						<% if(type == 1){ %><th>验证码</th><% } %>
+						<th><% if(type == 0){%>申请时间<% }else{ %>处理时间<% } %></th>
+						<th><% if(type == 0 || type == 1){%>操作<% }else{ %>处理结果<% } %></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% for(var i = 0; i < list.length; i ++) { %>
+					<%
+					var item = list[i];
+					%>
+					<tr class="item" data-id="${item.id}">
+						<td>
+							${item['user']['nickname']}
+						</td>
+						<td class="nickname">${item.account}</td>
+						<td>
+							<% if(item.type == 1){%>微信号<% }else{ %>支付宝<% } %>
+						</td>
+						<td>
+							￥${item.number}
+						</td>
+						<% if(type == 1){ %><td>${item.code}</td><% } %>
+						<td>
+							<% if(type == 0){%>
+								${item.createDate|timeFormat}
+							<% }else{ %>
+								${item.modifyDate|timeFormat}
+							<% } %>
+						</td>
+						<td>
+							<% if(item.status == 1){%>
+								<div class="ui teal button" name="update_button">设为完成</div>
+							<% }else if(item.status == 2){ %>
+								<a class="ui red tag label">已拒绝</a>
+							<% }else if(item.status == 3){ %>
+								<a class="ui teal tag label">已完成</a>
+							<% }else{ %>
+								<i name="status_operate" class="privacy icon" ></i>
+							<% } %>
+						</td>
+					</tr>
+					<% } %>
+				</tbody>
+			</table>
+			<%if(page) { %>
+			<%include name="common/widgets/pagenavi.html" var="page" /%>
+			<%}%>
+		</div>
+	</div>
+</div>
+<link rel="stylesheet" href="/static/css/page/user/list.css">
+<script src="/static/js/mod/common/lazy.js"></script>
+<script type="text/javascript" src="/static/js/mod/withdraws/list.js"></script>

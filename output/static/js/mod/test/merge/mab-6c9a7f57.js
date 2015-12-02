@@ -1,0 +1,1 @@
+define(function(e){debugger;return{a:"a"}}),define(function(e){debugger;return{a:"b"}}),define(["mod/test/merge/a","mod/test/merge/b"],function(e,t){debugger;return{mab:"mab"}})

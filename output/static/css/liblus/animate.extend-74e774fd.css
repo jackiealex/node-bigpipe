@@ -1,0 +1,88 @@
+@-moz-keyframes dot-highlight {
+  0% {
+    box-shadow: 0 0 0 0px #fff, 0 0 0 0px #fff;
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(255,255,255,0.2), 0 0 0 20px rgba(255,255,255,0.1);
+  }
+  75% {
+    box-shadow: 0 0 0 5px rgba(255,255,255,0.2), 0 0 0 10px rgba(255,255,255,0.1);
+  }
+  100% {
+    box-shadow: none;
+  }
+}
+@-webkit-keyframes dot-highlight {
+  0% {
+    box-shadow: 0 0 0 0px #fff, 0 0 0 0px #fff;
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(255,255,255,0.2), 0 0 0 20px rgba(255,255,255,0.1);
+  }
+  75% {
+    box-shadow: 0 0 0 5px rgba(255,255,255,0.2), 0 0 0 10px rgba(255,255,255,0.1);
+  }
+  100% {
+    box-shadow: none;
+  }
+}
+@-o-keyframes dot-highlight {
+  0% {
+    box-shadow: 0 0 0 0px #fff, 0 0 0 0px #fff;
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(255,255,255,0.2), 0 0 0 20px rgba(255,255,255,0.1);
+  }
+  75% {
+    box-shadow: 0 0 0 5px rgba(255,255,255,0.2), 0 0 0 10px rgba(255,255,255,0.1);
+  }
+  100% {
+    box-shadow: none;
+  }
+}
+@keyframes dot-highlight {
+  0% {
+    box-shadow: 0 0 0 0px #fff, 0 0 0 0px #fff;
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(255,255,255,0.2), 0 0 0 20px rgba(255,255,255,0.1);
+  }
+  75% {
+    box-shadow: 0 0 0 5px rgba(255,255,255,0.2), 0 0 0 10px rgba(255,255,255,0.1);
+  }
+  100% {
+    box-shadow: none;
+  }
+}
+@-moz-keyframes flicker {
+  0% {
+    box-shadow: 0 0 5px 4px rgba(255,255,255,0);
+  }
+  100% {
+    box-shadow: 0 0 5px 4px rgba(131,241,241,0.7);
+  }
+}
+@-webkit-keyframes flicker {
+  0% {
+    box-shadow: 0 0 5px 4px rgba(255,255,255,0);
+  }
+  100% {
+    box-shadow: 0 0 5px 4px rgba(131,241,241,0.7);
+  }
+}
+@-o-keyframes flicker {
+  0% {
+    box-shadow: 0 0 5px 4px rgba(255,255,255,0);
+  }
+  100% {
+    box-shadow: 0 0 5px 4px rgba(131,241,241,0.7);
+  }
+}
+@keyframes flicker {
+  0% {
+    box-shadow: 0 0 5px 4px rgba(255,255,255,0);
+  }
+  100% {
+    box-shadow: 0 0 5px 4px rgba(131,241,241,0.7);
+  }
+}

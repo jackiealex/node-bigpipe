@@ -1,0 +1,115 @@
+<%
+	var key = key;
+%>
+<div class="mod-report-list">
+ 	<div class="header">
+ 		<div class="ui form">
+ 			<div class="fields">
+		 		<div class=" field inline ">
+			 		<div class="ui  input corner labeled">
+						<input type="text" placeholder="搜索举报项" onfocus="this.select()" value="${key}">
+						<% if(key) {%>
+						<div class="ui corner label" title="清除">       
+							<i class="remove icon"></i>      
+						</div>
+						<% } %>
+					</div>
+				</div>
+				<div class=" field inline ">
+					<div class=" field inline ">
+						<div class="ui active blue  button">
+						  <i class="search icon"></i>
+						  搜索
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+ 	</div>
+ 	<div class="container">
+ 		<div class="list">
+	 		<div class="ui top attached tabular menu">
+	 			<div class=" item">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+				<%
+					var activeArray = ['', '', '', ''];
+					if (typeof status == "undefined" || status == null) {
+						activeArray[3] = 'active';
+					}
+					else {
+						activeArray[status] = 'active';
+					}
+				%>
+				<a class="${activeArray[3]} item action-paresh" href="/report/list">全部</a>
+				<a class="${activeArray[0]} item action-paresh" href="/report/list?status=0">
+					未处理
+				</a>
+				<a class="${activeArray[2]} item action-paresh" href="/report/list?status=2">
+					同意
+				</a>
+				<a class="${activeArray[1]} item action-paresh" href="/report/list?status=1">
+					拒绝
+				</a>
+			</div>
+ 			<table class="ui attached column table segment">
+ 				<thead>
+ 					<tr>
+ 						<th>类型</th>
+ 						<th>内容</th>
+ 						<th>时间</th>
+ 						<th>状态</th>
+ 						<th>处理</th>
+ 					</tr>
+ 				</thead>
+ 				<tbody>
+ 					<% for(var i = 0; i < list.length; i ++) { %>
+ 					<%
+ 						var item = list[i];
+ 					%>
+ 					<tr class="item row" data-id="${item.id}">
+ 						<!-- // 1.交易投诉,2.评论投诉,3.举报用户,4举报歌曲 -->
+ 						<% if (item.type == 1) { %>
+ 						<td class="type">交易投诉</td>
+ 						<% } else if (item.type == 2) { %>
+ 						<td class="type">评论投诉</td>
+ 						<% } else if (item.type == 3) { %>
+ 						<td class="type">举报用户</td>
+ 						<% } else if (item.type == 4) { %>
+ 						<td class="type">举报歌曲</td>
+ 						<% } else if (item.type == 5) { %>
+						<td class="type">他人页评论列表投诉</td>
+ 						<% } %>
+
+ 						<td class="desc">${item.description}</td>	
+ 						<td class="date">${item.createDate|timeFormat}</td>	
+ 						<td class="status">${item.status}</td>	
+ 						<td class="status">
+ 							<% if (item.status == 0) { %>
+ 							<div class="ui button btn-handle">
+ 								<i class="mail icon"></i>
+ 								点击处理
+ 							</div>
+ 							<% } else if (item.status == 2) { %>
+							<div class="ui green button">
+ 								<i class="mail icon"></i>
+ 								已同意
+ 							</div>
+ 							<% } else if (item.status == 1) { %>
+ 							<div class="ui red button">
+ 								<i class="mail icon"></i>
+ 								已拒绝
+ 							</div>
+ 							<% } %>
+ 						</td>	
+ 					</tr>
+ 					<% } %>
+ 				</tbody>
+ 			</table>
+ 			<%if(page) { %>
+ 				<%include name="common/widgets/pagenavi.html" var="page" /%>
+ 			<% } %>
+ 		</div>
+ 	</div>
+</div> 
+<link rel="stylesheet" href="/static/css/page/report/list.css">
+<link rel="stylesheet" href="/static/css/page/order/list.css">
+<script type="text/javascript" src="/static/js/mod/report/list.js"></script>

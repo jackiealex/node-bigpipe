@@ -1,0 +1,70 @@
+<link rel="stylesheet" href="/static/css/page/coupon/list.css">
+<%
+	var key = key;
+%>
+<div class="mod-coupon-list mod" >
+ 	<div class="header">
+		<a href="/coupon/publish"  class="action-paresh ui down button">
+			<i class="user icon"></i>
+			添加红包配置
+		</a>
+ 	</div>
+ 	<div class="container">
+ 		<div class="list">
+ 			<table class="ui  column table segment">
+ 				<thead>
+ 					<tr>
+ 						<th>描述</th>
+ 						<th>金额</th>
+ 						<th>限制金额</th>
+ 						<th>时长(天)</th>
+ 						<th>标识</th>
+						<th>方式</th>
+						<th>操作(启用/停用)</th>
+ 					</tr>
+ 				</thead>
+ 				<tbody>
+ 					<% for(var i = 0; i < list.length; i ++) { %>
+ 					<%
+ 						var item = list[i];
+ 					%>
+ 					<tr class="item" data-id="${item.id}">
+ 						<td>
+ 							${item.text}
+ 						</td>
+ 						<td>${item.money}</td>
+ 						<td>${item.limitMoney}</td>
+ 						<td>${item.time}</td>
+						<td>${item.code}</td>
+						<td>
+							<% if(item.mode == 1){ %>
+								发放
+							<% }else{ %>
+								领用
+							<% }%>
+						</td>
+ 						<td>
+							<%if(item.status==1) { %>
+							<div class="checked ui toggle checkbox">
+								<input class="is-quality-change" type="checkbox" data="${item.id}" name="status" checked />
+								<label></label>
+							</div>
+							<% } else { %>
+							<div class="ui toggle checkbox">
+								<input class="is-quality-change" type="checkbox" data="${item.id}" name="status" />
+								<label></label>
+							</div>
+							<% } %>
+						</td>
+ 					</tr>
+ 					<% } %>
+ 				</tbody>
+ 			</table>
+ 			<%if(page) { %>
+ 				<%include name="common/widgets/pagenavi.html" var="page" /%>
+ 			<%}%>
+ 		</div>
+ 	</div>
+</div>
+
+<script src="/static/js/base/zepto-dnd.js"></script>

@@ -1,0 +1,359 @@
+.class-page-navi,
+.page-nav {
+  position: relative;
+  margin-top: 20px;
+}
+.class-page-navi .port,
+.page-nav .port {
+  position: absolute;
+  right: -200px;
+  background: none;
+rgba(39,41,43,0.15)
+  display: -moz-box;
+/* OLD - Firefox 19- (buggy but mostly works) */
+  display: flex;
+  display: -webkit-box;
+/* OLD - iOS 6-, Safari 3.1-6 */
+  display: -ms-flexbox;
+/* TWEENER - IE 10 */
+  display: -webkit-box;
+/* NEW - Chrome */
+  -webkit-box-align: center;
+  -o-box-align: center;
+  -moz-box-align: center;
+  -ms-box-align: center;
+  box-align: center;
+  border: 1px solid rgba(39,41,43,0.15);
+  border-radius: 0.2857rem;
+  font-size: 12px;
+}
+.class-page-navi .port div,
+.page-nav .port div {
+  padding: 4px;
+}
+.class-page-navi .port input,
+.page-nav .port input {
+  min-width: 60px;
+  display: block;
+  margin: 0;
+  padding: 4px;
+  border: none;
+  background: rgba(39,41,43,0.15);
+}
+.class-page-navi .port .input,
+.page-nav .port .input {
+  background: none;
+  outline: none;
+}
+.class-page-navi .port .input:focus,
+.page-nav .port .input:focus {
+  outline: none;
+  color: #000;
+  font-weight: bold;
+}
+.class-page-navi .pin,
+.page-nav .pin {
+  border: none !important;
+  cursor: default;
+  margin-left: -1px;
+}
+.file-picker input[type="file"] {
+  display: none;
+}
+.class-btn-add-files {
+  width: 200px;
+  height: 40px;
+  position: relative;
+  overflow: hidden;
+  background: #20a7e9;
+  color: #fff;
+  border-radius: 12px;
+  line-height: 40px;
+  text-align: center;
+}
+.class-btn-add-files input[type="file"] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  opacity: 0;
+  -ms-filter: 'alpha(opacity=0)';
+  font-size: 200px;
+  direction: ltr;
+  cursor: pointer;
+}
+.class-btn-add-files .text {
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+}
+.mod-user-atlas-list {
+  padding: 20px;
+}
+.mod-user-atlas-list .title {
+  display: -moz-box;
+/* OLD - Firefox 19- (buggy but mostly works) */
+  display: flex;
+  display: -webkit-box;
+/* OLD - iOS 6-, Safari 3.1-6 */
+  display: -ms-flexbox;
+/* TWEENER - IE 10 */
+  display: -webkit-box;
+/* NEW - Chrome */
+  margin-bottom: 20px;
+}
+.mod-user-atlas-list .title span {
+  color: #008000;
+}
+.mod-user-atlas-list .title div {
+  font-size: 14px;
+  padding-left: 12px;
+}
+.mod-user-atlas-list .title div p {
+  padding: 2px;
+  height: 22px;
+  line-height: 22px;
+}
+.mod-user-atlas-list .title img {
+  width: 48px;
+  border-radius: 4px;
+  height: auto;
+  display: inline-block;
+}
+.mod-user-atlas-list .go-back {
+  float: right;
+  background: #d14836;
+  padding: 4px;
+  font-size: 14px;
+  color: #fff;
+}
+.mod-user-atlas-list ul::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.mod-user-atlas-list ul li {
+  margin-bottom: 5px;
+  float: left;
+  width: 25%;
+  height: 240px;
+  position: relative;
+}
+.mod-user-atlas-list ul li:hover .text {
+  -webkit-transform: translateY(100%) rotate(720deg);
+  -o-transform: translateY(100%) rotate(720deg);
+  -moz-transform: translateY(100%) rotate(720deg);
+  -ms-transform: translateY(100%) rotate(720deg);
+  transform: translateY(100%) rotate(720deg);
+}
+.mod-user-atlas-list ul li a {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  display: -moz-box;
+/* OLD - Firefox 19- (buggy but mostly works) */
+  display: flex;
+  display: -webkit-box;
+/* OLD - iOS 6-, Safari 3.1-6 */
+  display: -ms-flexbox;
+/* TWEENER - IE 10 */
+  display: -webkit-box;
+/* NEW - Chrome */
+  -webkit-box-align: center;
+  -o-box-align: center;
+  -moz-box-align: center;
+  -ms-box-align: center;
+  box-align: center;
+  -webkit-box-orient: vertical;
+  -o-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -ms-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-box-pack: center;
+  -o-box-pack: center;
+  -moz-box-pack: center;
+  -ms-box-pack: center;
+  box-pack: center;
+}
+.mod-user-atlas-list ul li a img {
+  width: 100%;
+}
+.mod-user-atlas-list ul li .timer-counter {
+  height: 30px;
+  line-height: 30px;
+  position: absolute;
+  width: 100%;
+  margin-top: -15px;
+  text-align: center;
+  background: rgba(33,33,33,0.62);
+  color: #fff;
+  top: 50%;
+}
+.mod-user-atlas-list ul li .timer-counter i {
+  width: 24px;
+  height: 24px;
+  margin: 3px 6px;
+  float: left;
+  background: url("http://7xlphm.com1.z0.glb.clouddn.com/static/img/icons/clock-1a29d539.png") no-repeat left center;
+  background-size: 24px;
+}
+.mod-user-atlas-list ul li .text {
+  -webkit-transition: all 0.3s ease-in;
+  -o-transition: all 0.3s ease-in;
+  -moz-transition: all 0.3s ease-in;
+  -ms-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: -100%;
+  background: rgba(209,72,54,0.82);
+  color: #fff;
+}
+.mod-user-atlas-list ul li .text .delete {
+  width: 32px;
+  height: 32px;
+  background: #000 url("http://7xlphm.com1.z0.glb.clouddn.com/static/img/icons/delete-97bdc5d1.png") no-repeat center center;
+  background-size: 12px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  border-bottom-left-radius: 16px;
+}
+.mod-user-atlas-list ul li .text .recommend {
+  width: 32px;
+  height: 32px;
+  background: #000 url("http://7xlphm.com1.z0.glb.clouddn.com/static/img/icons/heart-broken-c44da1c8.png") no-repeat center center;
+  background-size: 12px;
+  position: absolute;
+  right: 0;
+  top: 40px;
+  cursor: pointer;
+  border-bottom-left-radius: 16px;
+}
+.mod-user-atlas-list ul li .text .recommend.done {
+  background-image: url("http://7xlphm.com1.z0.glb.clouddn.com/static/img/icons/heartx32-8e70ffe5.png");
+}
+.mod-user-atlas-list ul li .text .text-content {
+  margin: 20px;
+}
+.mod-user-atlas-list ul li .text .origin {
+  display: -moz-box;
+/* OLD - Firefox 19- (buggy but mostly works) */
+  display: flex;
+  display: -webkit-box;
+/* OLD - iOS 6-, Safari 3.1-6 */
+  display: -ms-flexbox;
+/* TWEENER - IE 10 */
+  display: -webkit-box;
+/* NEW - Chrome */
+  -webkit-box-pack: justify;
+  -o-box-pack: justify;
+  -moz-box-pack: justify;
+  -ms-box-pack: justify;
+  box-pack: justify;
+  margin: 10px;
+  color: #e8e8e8;
+}
+.mod-user-atlas-list ul li .text .num {
+  color: #e8e8e8;
+}
+.mod-user-atlas-list ul li .text .loc {
+  height: 24px;
+  line-height: 24px;
+  background: url("/static/img/icons/16/location.png") no-repeat left center;
+  background-size: auto 14px;
+  padding-left: 16px;
+  text-align: left;
+}
+.mod-user-atlas-list ul li .text h2 {
+  height: 24px;
+  line-height: 24px;
+  display: -moz-box;
+/* OLD - Firefox 19- (buggy but mostly works) */
+  display: flex;
+  display: -webkit-box;
+/* OLD - iOS 6-, Safari 3.1-6 */
+  display: -ms-flexbox;
+/* TWEENER - IE 10 */
+  display: -webkit-box;
+/* NEW - Chrome */
+  -webkit-box-pack: justify;
+  -o-box-pack: justify;
+  -moz-box-pack: justify;
+  -ms-box-pack: justify;
+  box-pack: justify;
+  font-size: 14px;
+}
+.mod-user-atlas-list ul li .text h2 p i {
+  width: 24px;
+  height: 24px;
+  float: left;
+  background: url("http://7xlphm.com1.z0.glb.clouddn.com/static/img/icons/person-f72650d0.png") no-repeat left center;
+  background-size: 24px;
+}
+.mod-user-atlas-list ul li .text h2 p.time i {
+  background-image: url("http://7xlphm.com1.z0.glb.clouddn.com/static/img/icons/clock-1a29d539.png");
+  background-size: 16px;
+}
+.mod-user-atlas-list ul li .text .desc {
+  text-align: left;
+  font-size: 16px;
+  margin-top: 20px;
+  max-height: 60px;
+  overflow: hidden;
+  -webkit-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+  line-height: 20px;
+}
+.mod-user-atlas-list ul li .text .op {
+  display: -moz-box;
+/* OLD - Firefox 19- (buggy but mostly works) */
+  display: flex;
+  display: -webkit-box;
+/* OLD - iOS 6-, Safari 3.1-6 */
+  display: -ms-flexbox;
+/* TWEENER - IE 10 */
+  display: -webkit-box;
+/* NEW - Chrome */
+  -webkit-box-pack: center;
+  -o-box-pack: center;
+  -moz-box-pack: center;
+  -ms-box-pack: center;
+  box-pack: center;
+  -webkit-box-align: center;
+  -o-box-align: center;
+  -moz-box-align: center;
+  -ms-box-align: center;
+  box-align: center;
+  height: 22px;
+  font-size: 14px;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+}
+.mod-user-atlas-list ul li .text .op .fav,
+.mod-user-atlas-list ul li .text .op .speak {
+  -webkit-box-flex: 1;
+  -o-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-box-flex: 1;
+  box-flex: 1;
+  flex: 1;
+  text-align: center;
+}
+.mod-user-atlas-list ul li .text .op .fav span,
+.mod-user-atlas-list ul li .text .op .speak span {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  padding-left: 20px;
+  background: url("http://7xlphm.com1.z0.glb.clouddn.com/static/img/icons/16/heart-15b17bc1.png") no-repeat left center;
+}
+.mod-user-atlas-list ul li .text .op .speak span {
+  background: url("http://7xlphm.com1.z0.glb.clouddn.com/static/img/icons/16/bubble-dc78bada.png") no-repeat left center;
+}

@@ -1,0 +1,106 @@
+@import "../../liblus/_css3";
+@import "../../liblus/widget";
+
+// start file
+.mod-message-by-group {
+	position: relative;
+	.sub-header {
+		margin-bottom: 12px;
+		border-bottom: 1px solid green;
+	}
+	.sub-main {
+		margin-top: 166px;
+		position: relative;
+		.header {
+			padding: 12px;
+			padding-bottom: 0;
+		}
+		.right {
+			position: absolute;
+			right: 0;
+			top: 0;
+			size(100px);
+			background: red;
+		}
+	}
+	.mod-user-list {
+		margin: 0;
+		padding: 0;
+		position: relative;
+		
+	}
+	.list, .selected-box {
+		padding: 0 12px;
+		.item {
+			float: left;
+			width: 25%;
+			position: relative
+			&.selected {
+				.wrap {
+					background: #02B102;
+					color: #fff;
+				}
+			}
+			.wrap {
+				box()
+				pack()
+				align()
+				
+				border-radius: 3px;
+				background: #eee;
+				margin: 0 20px 20px 0;
+				padding: 6px;
+			}
+			img {
+				size(60px)
+				margin-right: 6px;
+				display: block;
+				border-radius: 100%;
+			}
+			.profile {
+				flex()
+				.name {
+					text-overflow()
+				}
+			}
+		}
+	}
+	.selected-box {
+		position: absolute;
+		width: 100%;
+		bottom: 0;
+		left: 0;
+		top: 0;
+		background: #fff;
+		z-index: 99;
+		display: none;
+		padding: 12px;
+		padding-top: 42px;
+		
+		.close {
+			line-height: 30px;
+			height: 30px;
+			z-index: 99;
+			position: fixed;
+			top: 228px;
+			left: $_sidebarWidth;
+			right: 0;
+			background: #D30D18;
+			color: #fff;
+			text-align: center;
+		}
+	}
+	.page-nav {
+		@extends .class-page-navi
+		margin: 12px;
+	}
+	.menu .item {
+		float: none;
+		display: block;
+	}
+}
+ 
+.page-nav {
+	@extend .class-page-navi
+	margin: 12px;
+}

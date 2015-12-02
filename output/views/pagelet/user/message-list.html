@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用户聊天列表</title>
+	<link rel="stylesheet" href="/static/plugins/Semantic-UI/dist/semantic.min.css">
+	<link rel="stylesheet" href="/static/css/page/user/message-list.css">
+</head>
+<body>
+	<ul>
+		<% for(var i = 0; i < rs.length; i++) { %>
+		<%
+			var item = rs[i];
+			var msgContent = JSON.parse(item.msgContent);
+			var itemCls = 'a';
+			if(item.senderAccount == sa) {
+				itemCls = 'b';
+			}
+		%>
+		<li class="${itemCls}">
+			
+			<% if(item.senderAccount == ra) { %>
+				<img src="/static/img/default.png" alt="">
+			<% } %>
+			<div class="box">
+				<h4>
+					<p class="name">${msgContent.sendername}</p>
+				</h4>
+				<div class="content">
+				<% if(msgContent.msgtype == 0) {%>
+				<p>${msgContent.msgcontent}</p>
+				<% } %>
+				<% if(msgContent.msgtype == 1) {%>
+				<p>邀请唱一首歌 《${msgContent.songname}》</p>
+				<% } %>
+				<% if(msgContent.msgtype == 2) {%>
+				<p>唱了一首 《${msgContent.songname}》</p>
+				<% } %>
+				<% if(msgContent.msgtype == 4) {%>
+				<p>接受邀请</p>
+				<% } %>
+				<% if(msgContent.msgtype == 5) {%>
+				<p>拒绝邀请</p>
+				<% } %>
+				</div>
+			</div>
+			
+			<% if(item.senderAccount == sa) { %>
+				<img src="/static/img/default.png" alt="">
+			<% } %>
+		</li>
+		<% } %>
+	</ul>
+</body>
+</html>

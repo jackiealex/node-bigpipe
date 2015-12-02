@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="/static/css/page/label/publish.css">
+<div class="mod-label-publish">
+	<div class="row" style="margin-top: 0">
+		<a class="ui active grey button action-paresh" href="/label/list">
+		  <i class="chevron left icon"></i>
+		  返回
+		</a>
+	</div>
+	<form action="/label/create" method="post" class="create-label">
+	<div class="row">
+		<div class="ui icon input">
+			<input type="text" name="name" placeholder="名字">
+			<i class="home icon"></i>
+		</div>
+	</div>
+	<div class="row">
+		<div class="ui icon input">
+			<input type="text" name="intro" placeholder="简介">
+			<i class="file text icon"></i>
+		</div>
+	</div>
+	<div class="row">
+		<div class="ui icon input ">
+			<input type="number" name="order" min="1" max="9999" placeholder="排序数（1~9999）">
+			<i class="ordered list icon"></i>
+		</div>
+	</div>
+	</form>
+	<div class="row">
+		<div class=" btn-submit positive ui button">提交</div>
+	</div>
+</div>
+
+
+<script src="/static/js/mod/label/publish.js"></script>

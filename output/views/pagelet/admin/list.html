@@ -1,0 +1,72 @@
+<link rel="stylesheet" href="/static/css/page/admin/list.css">
+<%
+	var key = key;
+%>
+<div class="mod-admin-list mod" >
+ 	<div class="header">
+ 		<div class="ui icon input corner labeled  ">
+			<input type="text" placeholder="搜索管理员" onfocus="this.select()" value="${key}">
+			<i class="circular search icon"></i>
+			<% if(key) {%>
+			<div class="ui corner label" title="清除">       
+				<i class="remove icon"></i>      
+			</div>
+			<% } %>
+		</div>
+		<% if(_PUBLISH_) {%>
+		<a href="/admin/publish"  class="action-paresh ui down button">
+			<i class="user icon"></i>
+			添加管理员
+		</a>
+		<% } %>
+		<% if(_ALLOC_ROLE_) {%>
+		<div class="btn-alloc-role ui down button">
+			<i class="user icon"></i>
+			<i class="fork icon"></i>
+			<span>分配角色</span>
+		</div>
+		<% } %>
+ 	</div>
+ 	<div class="container">
+ 		<div class="list">
+ 			<table class="ui  column table segment">
+ 				<thead>
+ 					<tr>
+ 						
+ 						<th>账号</th>
+ 						<th>昵称</th>
+ 						<th>邮箱</th>
+ 						<th>创建日期</th>
+ 						<th>操作</th>
+ 					</tr>
+ 				</thead>
+ 				<tbody>
+ 					<% for(var i = 0; i < list.length; i ++) { %>
+ 					<%
+ 						var item = list[i];
+ 					%>
+ 					<tr class="item" data-id="${item.id}">
+ 						<td class="username">
+ 							${item.username}
+ 						</td>
+ 						<td class="nickname">${item.nickname}</td>	
+ 						<td class="email ">${item.email}</td>	
+ 						<td class="date">${item.createDate|timeFormat}</td>	
+ 						<td>
+ 							<a class="btn-preview-roles">权限</a>
+ 							<i class="privacy icon"></i>
+						</td>
+ 					</tr>
+ 					<% } %>
+ 				</tbody>
+ 			</table>
+ 			<%if(page) { %>
+ 				<%include name="common/widgets/pagenavi.html" var="page" /%>
+ 			<%}%>
+ 		</div>
+ 	</div>
+</div>
+
+<script src="/static/js/base/zepto-dnd.js"></script>
+<script src="/static/js/mod/admin/list.js"></script>
+

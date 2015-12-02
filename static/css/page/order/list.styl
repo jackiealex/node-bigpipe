@@ -1,0 +1,162 @@
+@import "../../liblus/_css3";
+@import "../../liblus/widget";
+
+.mod-order-list {
+	margin: 20px;
+	.header {
+		margin-bottom: 12px;
+	}
+	.container {
+		box()
+		.list {
+			flex()
+		}
+	}
+	tr {
+		&.target {
+			border: none;
+			
+			color: yellow;
+		}
+		position: relative;
+	}
+	tr.detail {
+		td {
+			border: none;
+			position: relative;
+		}
+		position: relative;
+		.triangle {
+			display: block;
+			overflow: hidden;
+			width: 0px;
+			height: 0px;
+			border-left: 10px solid transparent;
+			border-bottom: 10px solid #ff3e3e;
+			border-right: 10px solid transparent;
+			position: absolute;
+			left: 50%;
+			top: -10px;
+			content: "";
+		}
+		.btn-update-order-status {
+			margin: 10px;
+		}
+		.input-expressNo {
+			padding: 10px;
+			.tip {
+				color: yellow;
+				font: bold;
+			}
+			input:focus {
+				background: yellow;
+				color: rgb(74, 74, 74);
+				font: bold 16px/16px !important;
+			}
+		}
+		.box {
+			position: relative;
+			padding: 6px 12px;
+			overflow: hidden;
+			background: #ff3e3e;
+			ul li {
+				color: #fff;
+				padding: 2px 12px;
+				a {
+					color: #C4C4C4;
+				}
+				p {
+					padding: 4px 12px;
+				}
+			}
+			.comment img {
+				size(32px);
+				border-radius: 100%;
+				margin-right: 12px;
+				display: inline-block;
+			}
+			.song {
+				a {
+					display: inline-block;
+					margin-right: 20px;
+					color: blue;
+				}
+			}
+			.u2u {
+				box()
+				align(center)
+
+				.sex {
+					padding-right: 12px;
+					font-size: 12px;
+				}
+				.who {
+					position: relative;
+
+					background: #eee;
+					border-radius: 4px;
+					overflow: hidden;
+					font-size: 0;
+					box()
+					a {
+						display: block;
+						size(90px)
+						img {
+							size(90px)
+						}
+					}
+					.info {
+						box()
+						orient(vertical);
+						max-width: 180px;
+						p {
+							color: #989898;
+							border-top: 1px solid #fff;
+							font-size: 12px;
+							display: block;
+							height: 30px;
+							line-height: 20px; 
+						}
+					}
+					
+				}
+				
+				.txt-words {
+					margin: 0 8px;
+					a {
+						display: inline;
+						color: blue;
+					}
+					&.end {
+						flex()
+					}
+				}
+				p {
+					text-align: center
+				}
+
+			}
+			.button {
+				color: #fff;
+			}
+			
+			.close { 
+				fontheight(30px)
+				font-size: 30px;
+				padding: 4px;
+				position: absolute;
+				right: -1px;
+				top: 0px;
+				color: #BDBDBD;
+				cursor: pointer;
+				&:hover {
+					color: #fff;
+				}
+			}
+		}
+	}
+}
+	 
+.page-nav {
+	@extend .class-page-navi
+}

@@ -1,0 +1,143 @@
+@import "../../liblus/_css3";
+@import "../../liblus/widget";
+
+.mod-atlas-list {
+	padding: 20px;
+	.tab-header {
+		margin: 16px 0;
+	}
+	.box-wrapper {
+		position: relative
+		height: 400px;
+		.item {
+			padding: 0 6px 20px 0;
+			position: absolute;
+			display: inline-block;
+			overflow: hidden;
+			color: #353535;
+			transition(all 0.3s linear);
+			&:hover {
+				.wrap .delete {
+					display: block;
+				}
+			}
+			.delete {
+				size(30px);
+				position: absolute;
+				right: 0;
+				top: 0;
+				background: #000 url($imgPath + '/icons/delete.png') no-repeat center center;
+				background-size: 12px;
+				cursor: default;
+				border-radius: 0 0 0 (@width/2);
+				display: none;
+			}
+			.wrap {
+				position: relative;
+				background: #fff;
+				border-radius: 5px;	
+				shadow(0 1px 3px 0 rgba(0,0,0,.2));
+			}
+			.header {
+				width: 100%;
+				height: 65px;
+				box();
+				align();
+				.head-img {
+					width: 50px;
+					height: 50px;
+					.small-pic {
+						border-radius: 50%;
+						margin-left: 5px;
+						width: 50px;
+						height: 50px;
+					}
+				}
+				.person-info {
+					i {
+						size(18px)
+						float: left;
+						background-image: url($imgPath + '/icons/Clock.png');
+						background-size: 18px;
+						margin-right: 4px;
+					}
+					fontheight(20px);
+					margin-left: 10px;
+					padding: 10px 0 10px 5px;
+					height: 60px;
+					-webkit-box-flex: 1;
+					-moz-box-flex: 1;
+					-ms-box-flex: 1;
+					-o-box-flex: 1;
+					box-flex: 1;
+				}
+
+				
+			}
+			.desc {
+				width: 100%;
+				padding: 6px;
+				font-size: 13px;
+			}
+			.pic-wrap {
+				overflow: hidden;
+			}
+			.pic {
+				width: 100%; 
+				height: auto;
+				background: gray;
+				transition(all 0.62s ease-in-out);
+				&:hover {
+					transform(scale3d(1.5, 1.5, 1));
+				}
+			}
+			.sum {
+				height: 30px;
+				.praise-num, .comment-num, .location {
+					padding: 6px;
+				}
+				.location {
+					float: right;
+					max-width: 100px;
+					max-width: 92px;
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					i {
+						size(16px)
+						display: block;
+						float: left;
+						background: url($imgPath + '/icons/16/location1.png') no-repeat center center;
+						background-size: 9px;
+					}
+				}
+				.praise-num {
+					float: left;
+					i {
+						size(16px)
+						float: left;
+						background: url($imgPath + '/icons/16/heart.png') no-repeat center center;
+						background-size: 16px;
+						margin-right: 5px;
+					}
+				}
+				.comment-num {
+					float: left;
+					margin-left: 5px;
+					i {
+						size(16px)
+						float: left;
+						background: url($imgPath + '/icons/16/bubble.png') no-repeat center center;
+						background-size: 16px;
+						margin-right: 5px;
+					}
+				}
+				
+			}
+		}
+	}
+}
+
+.page-nav {
+	@extend .class-page-navi
+}
